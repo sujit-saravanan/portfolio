@@ -1,0 +1,333 @@
+@font-face {
+    font-family: ms;
+    src: url(assets/fonts/w95.woff2);
+}
+
+:root {
+    font-family: ms;
+}
+
+body {
+    background-color: #018281;
+    padding: 0px;
+    margin: 0px;
+    width: 100%;
+    height: 100%;
+}
+
+.icon_grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 0.5rem;
+}
+
+.icon_container, .folder_icon_container{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 64px;
+    padding: 4px;
+}
+
+
+.selection-effect {
+    display: none;
+    position: absolute;
+    top: 4px;
+    mask-image: var(--icon-image);
+    width: 48px;
+    height: 48px;
+    background: rgb(0, 0, 128);
+    opacity: 0.5;
+    z-index: 1;
+}
+
+.icon_image {
+    image-rendering: pixelated;
+    user-select: none;
+}
+
+.icon_name {
+    text-align: center;
+    margin: 0px;
+    color: white;
+    user-select: none;
+    margin-top: 4px;
+
+    border-image-source: url('assets/test.svg');
+    outline-style: none;
+    outline-color: #c0c0c0;
+    outline-width: 2px;
+    border-image-slice: 33% 33%;
+    border-image-repeat: round;
+}
+
+
+#taskbar {
+    background-color: silver;
+    box-shadow: inset 2px 0 #fff;
+    border-top: 2px solid #f4f4f4;
+    border-bottom: 2px solid #4e4e4e;
+    padding: 2px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+
+    display: flex;
+}
+
+#taskbar .taskbar-button {
+    cursor: pointer;
+    display: inline-block;
+    font-family: ms;
+    margin-left: 4px;
+    margin-top: 3px;
+    margin-bottom: 3px;
+    padding-left: 2px;
+    padding-top: 2px;
+    background-color: silver;
+
+    border-top: 1px solid #fff;
+    border-left: 1px solid #fff;
+    border-right: 1px solid gray;
+    border-bottom: 1px solid gray;
+
+    box-shadow: inset 1px 1px #dfdfdf, 1px 0 #000, 0 1px #000, 1px 1px #000;
+    min-width: 200px;
+    color: #000;
+}
+
+#taskbar .start {
+    min-width: 59px;
+}
+
+#taskbar .taskbar-button-content {
+    user-select: none;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+/* #taskbar .taskbar-button {
+    border-color: silver;
+    box-shadow: inset -1px -1px #ffffff, inset 1px 1px #0a0a0a, inset -2px -2px #dfdfdf, inset 2px 2px #808080;
+} */
+
+#taskbar .clicked {
+    border-color: silver;
+    box-shadow: inset -1px -1px #ffffff, inset 1px 1px #0a0a0a, inset -2px -2px #dfdfdf, inset 2px 2px #808080;
+}
+
+#taskbar .window-clicked {
+    border-color: silver;
+    background: repeating-conic-gradient(#c0c0c0 0% 25%, white 0% 50%) 50% / 4px 4px;
+    box-shadow: inset -1px -1px #ffffff, inset 1px 1px #0a0a0a, inset -2px -2px #dfdfdf, inset 2px 2px #808080;
+}
+
+.window {
+    display: none;
+    position: absolute;
+    z-index: 2;
+
+    background-color: silver;
+    border-top: 2px solid #f4f4f4;
+    border-left: 2px solid #f4f4f4;
+    border-bottom: 2px solid #4e4e4e;
+    border-right: 2px solid #4e4e4e;
+
+    min-height: 200px;
+    min-width: 200px;
+
+    top: 5vh;
+    left: 25vw;
+
+    /* display: flex; */
+    flex-direction: column;
+}
+
+
+.window_title_bar {
+    z-index: 4;
+    background-color: #808080;
+    color: white;
+    margin: 1px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.window_title{
+    padding-left: 2px;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+.window_title_image {
+    image-rendering: crisp-edges;
+}
+.window_title_text {
+    display: inline-block;
+    padding-top: 2px;
+}
+
+.window_title_bar_draggable{
+    width: 100%;
+    height: 100%;
+}
+
+.window_management_buttons {
+    display: flex;
+    align-items: center;
+    margin-right: 2px;
+}
+
+.window_management_buttons button{
+    z-index: 5;
+    background-repeat: no-repeat;
+
+    image-rendering: crisp-edges;
+
+    display: block;
+    min-height: 14px;
+    min-width: 16px;
+    padding: 0;
+
+    cursor: pointer;
+
+    background-color: silver;
+
+    border-top: 1px solid #fff;
+    border-left: 1px solid #fff;
+    border-right: 1px solid gray;
+    border-bottom: 1px solid gray;
+
+    box-shadow: inset 1px 1px #dfdfdf, 1px 0 #000, 0 1px #000, 1px 1px #000;
+    color: #000;
+}
+.window_management_buttons button:active{
+    border-color: silver;
+    box-shadow: inset -1px -1px #ffffff, inset 1px 1px #0a0a0a, inset -2px -2px #dfdfdf, inset 2px 2px #808080;
+}
+
+.minimize_window_management_button{
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg width='6' height='2' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23000' d='M0 0h6v2H0z'/%3E%3C/svg%3E");
+    background-position: bottom 3px left 4px;
+}
+.maximize_window_management_button {
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg width='9' height='9' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M9 0H0v9h9V0zM8 2H1v6h7V2z' fill='%23000'/%3E%3C/svg%3E");
+    background-position: top 2px left 3px;
+}
+.close_window_management_button {
+    margin-left: 3px;
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg width='8' height='7' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M0 0h2v1h1v1h2V1h1V0h2v1H7v1H6v1H5v1h1v1h1v1h1v1H6V6H5V5H3v1H2v1H0V6h1V5h1V4h1V3H2V2H1V1H0V0z' fill='%23000'/%3E%3C/svg%3E");
+    background-position: top 3px left 4px;
+}
+
+
+
+.window_content {
+    background-color: #808080;
+    margin: 1px;
+    overflow-x: scroll;
+}
+
+.pdf {
+    margin-left: auto;
+    margin-right: auto;
+    font-family: sans-serif;
+    width: 1000px;
+    max-width: 1000px;
+    min-width: 1000px;
+}
+
+.pdf li {
+    list-style-position: inside;
+}
+
+.pdf_content {
+    background-color: white;
+    padding: 2rem 4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.header {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.section_title {
+    font-weight: bold;
+    border-bottom: 2px solid black;
+    width: 100%;
+}
+
+.subsection3 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+.subsection2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.subsection_elem_left {
+    text-align: left;
+}
+
+.subsection_elem_center {
+    text-align: center;
+}
+
+.subsection_elem_right {
+    text-align: right;
+}
+
+
+.header {
+    align-items: center;
+}
+
+
+.header-center {
+    text-align: center;
+}
+
+.header-center-top {
+    font-weight: bold;
+    font-size: xx-large;
+}
+
+.window_menu_bar{
+    margin-left: 8px;
+    display: flex;
+    gap: 10px;
+    padding: 2px;
+}
+
+.file_explorer{
+    width: 100%;
+    height: 100%;
+    box-shadow: inset -1px -1px #ffffff, inset 1px 1px #0a0a0a, inset -2px -2px #dfdfdf, inset 2px 2px #808080;
+    background-color: white;
+}
+.file_footer{
+    display: grid;
+    gap: 2px;
+    grid-template-columns: 1fr 1fr;
+    padding: 2px;
+}
+.file_footer_elem{
+    padding: 4px;
+    box-shadow: inset -1px -1px #ffffff, inset 1px 1px #0a0a0a, inset -2px -2px #dfdfdf, inset 2px 2px #808080;
+}

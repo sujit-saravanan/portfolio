@@ -1,0 +1,13 @@
+<svg class="it-dotted-line" xmlns="http://www.w3.org/2000/svg" width="5" height="5">
+    <rect y="0" x="0" width="1" height="1"></rect>
+    <rect y="0" x="2" width="1" height="1"></rect>
+    <rect y="0" x="4" width="1" height="1"></rect>
+
+    <rect y="2" x="0" width="1" height="1"></rect>
+    <rect y="2" x="2" width="1" height="1"></rect>
+    <rect y="2" x="4" width="1" height="1"></rect>
+
+    <rect y="4" x="0" width="1" height="1"></rect>
+    <rect y="4" x="2" width="1" height="1"></rect>
+    <rect y="4" x="4" width="1" height="1"></rect>
+</svg>

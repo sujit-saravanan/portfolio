@@ -1,0 +1,616 @@
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preload" href="styles.css" as="style">
+    <link rel="preload" href="main.js" as="script">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/x-icon" href="assets/textures/opti/windows.png">
+    <title>sujit-saravanan</title>
+</head>
+
+<body onclick="clear_selected_icons()">
+
+    <!-- Resume Window -->
+    <div id="ResumeWindow" class="window" style="width: 1000px; height: 700px;">
+        <div class="window_title_bar">
+            <div class="window_title_bar_draggable">
+                <div class="window_title"> 
+                    <img src = "assets/textures/opti/document-2.png" class="window_title_image">
+                    <div class="window_title_text"> Resume </div>
+                </div>
+            </div>
+            <div class="window_management_buttons">
+                <button class="minimize_window_management_button" onclick="minimize_window(this)"></button>
+                <button class="maximize_window_management_button" onclick="maximize_window(this)"></button>
+                <button class="close_window_management_button"    onclick="close_window(this)"></button>
+            </div>
+        </div>
+        <div class="window_content">
+            <div class="pdf">
+                <div class="pdf_content" style="font-family: 'Times New Roman', Times, serif;">
+                    <div class="header">
+                        <div class="header-left">
+                            <div class="header-left-top">sujitsaravanan15@gmail.com</div>
+                            <div class="header-left-bottom">(571) 361-9963</div>
+                        </div>
+                        <div class="header-center">
+                            <div class="header-center-top">Sujit Saravanan</div>
+                            <div class="header-center-bottom">https://sujit-saravanan.github.io/portfolio/ </div>
+                        </div>
+                        <div class="header-right" style="text-align: right;"> https://github.com/sujit-saravanan </div>
+                    </div>
+                    <div class="section">
+                        <div class="section_title">Profile</div>
+                        Computer Science student at Penn State, with a strong
+                        passion for systems programming and writing clean, performant code. Key strengths include a deep
+                        understanding of Data Oriented Design philosophies, low level hardware design, and graphics
+                        programming.
+                    </div>
+                    <div class="section">
+                        <div class="section_title">Education</div>
+                        <div>
+        <div class="subsection3">
+            <div class="subsection_elem_left"><b>University Park</b></div>
+            <div class="subsection_elem_center"><b>Pennsylvania State University</b></div>
+            <div class="subsection_elem_right"><b>Fall 2020 - Fall 2023</b></div>
+        </div>
+    </div>
+
+                        <div>
+        <div class="subsection2">
+            <div class="subsection_elem_left"><li>B.S. in Computer Science, Fall 2023.</li></div>
+            <div class="subsection_elem_right">Current GPA: 3.28</div>
+        </div>
+    </div>
+
+                    </div>
+                    <div class="section">
+                        <div class="section_title">Technical Abilities</div>
+                        <li><b>Languages:</b> C++; C; MIPS Assembly; Verilog; Python; JavaScript/HTML/CSS; Odin</li>
+                        <li><b>Tools/Libraries:</b> Linux; CMake; Vulkan; OpenGL; Git; JetBrains Products; Vivado; Fusion360; KiCAD</li>
+                        <li><b>Skills:</b> Microcontroller Design; 3D Modelling; 3D Printing; CNC Machining; PCB Design;Public Speaking</li>
+                    </div>
+                    <div clas="section">
+                        <div class="section_title">Projects</div>
+                        <div style="display: flex; flex-direction: column; gap: 1rem;">
+                            <div>
+    <div class="subsection2">
+        <div class="subsection_elem_left"><b>Data-Orienteed OpenGL Text Editor (2023):</b></div>
+        <div class="subsection_elem_right"><b>C; C++; OpenGL; JetBrains IDE</b></div>
+    </div>
+    <li>
+                                An extremely performant text editor that makes use of modern OpenGL and Data Oriented
+                                Design philosophies. Features a vector of gap buffers in order to reduce the impact of
+                                having to insert characters into a string.
+                            </li>
+</div>
+
+
+                            <div>
+    <div class="subsection2">
+        <div class="subsection_elem_left"><b>Pipelined MIPS Processor (2022):</b></div>
+        <div class="subsection_elem_right"><b>Verilog; MIPS Assembly; Vivado</b></div>
+    </div>
+    <li>
+                                A pipelined microcontroller designed in Verilog, that is capable of running MIPS
+                                assembly. It contains built in memory for both instructions as well as data, and
+                                supports forwarding between stages in order to avoid stalls.
+                            </li>
+</div>
+
+
+                            <div>
+    <div class="subsection2">
+        <div class="subsection_elem_left"><b>Stitch (2022):</b></div>
+        <div class="subsection_elem_right"><b>C; C++; CMake; JetBrains IDE</b></div>
+    </div>
+    <li>
+                                A performant, opinionated build system and project initialization/management tool that
+                                automatically generates CMakeLists.txt files based on the include tree of the project's
+                                module headers.
+                            </li>
+</div>
+
+
+                            <div>
+    <div class="subsection2">
+        <div class="subsection_elem_left"><b>Fast List (2022):</b></div>
+        <div class="subsection_elem_right"><b>C; C++; JetBrains IDE</b></div>
+    </div>
+    <li>
+                                A linked list implementation designed around minimizing cache misses and amortizing
+                                memory overhead. Benchmarks indicate a 3-5x performance improvement over std::list for
+                                standard operations.
+                            </li>
+</div>
+
+                        </div>
+                    </div>
+                    <div class="section">
+                        <div class="section_title">Employment</div>
+                        <div style="display: flex; flex-direction: column; gap: 1rem;">
+                            <div>
+        <div class="subsection3">
+            <div class="subsection_elem_left"><b>Employee</b></div>
+            <div class="subsection_elem_center"><b>Penn State CMPEN 497 Grader</b></div>
+            <div class="subsection_elem_right"><b>Spring 2023 - Present</b></div>
+        </div>
+        
+                                <li>Graded student assignments and updated scores to the grading portal in a
+                                    timely manner.</li>
+                                <li>Made sure grading was transparent and students were understanding of the grades
+                                    they received.</li>
+                            
+    </div>
+
+                            <div>
+        <div class="subsection3">
+            <div class="subsection_elem_left"><b>Volunteer</b></div>
+            <div class="subsection_elem_center"><b>Community Empowerment Northern Virginia</b></div>
+            <div class="subsection_elem_right"><b>Summer 2019</b></div>
+        </div>
+        
+                                <li>Sole data entry specialist in charge of maintaining CENV's consumer information
+                                    database.</li>
+                                <li>Scanned
+                                    vital documents and typed out relevant information into a database in order to keep
+                                    essential company records.</li>
+                                <li>Introduced an alternative method of data registry that allowed a more
+                                    efficient way for consumer information to be directly inputted into the company
+                                    database.</li>
+                                <li>Garnered 67.5 total volunteer hours throughout my experience with CENV.</li>
+                            
+    </div>
+
+                        </div>
+                    </div>
+                    <div class="section">
+                        <div class="section_title">Additional Experience and Awards</div>
+                        • OSHA Certification (2020): Completed the online, 10 Hour OSHA Certification Course.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="HelpWindow" class="window" style="width: 1000px; height: 700px;">
+        <div class="window_title_bar">
+            <div class="window_title_bar_draggable">
+                <div class="window_title"> 
+                    <img src = "assets/textures/opti/document-2.png" class="window_title_image">
+                    <div class="window_title_text"> Help </div>
+                </div>
+            </div>
+            <div class="window_management_buttons">
+                <button class="minimize_window_management_button" onclick="minimize_window(this)"></button>
+                <button class="maximize_window_management_button" onclick="maximize_window(this)"></button>
+                <button class="close_window_management_button"    onclick="close_window(this)"></button>
+            </div>
+        </div>
+        <div class="window_content">
+            <div class="pdf">
+                <div class="pdf_content" style="font-family: 'Times New Roman', Times, serif;">
+                    <div class="header">
+                        <div class="header-left">
+                            <div class="header-left-top">sujitsaravanan15@gmail.com</div>
+                            <div class="header-left-bottom">(571) 361-9963</div>
+                        </div>
+                        <div class="header-center">
+                            <div class="header-center-top">Sujit Saravanan</div>
+                            <div class="header-center-bottom">https://sujit-saravanan.github.io/portfolio/ </div>
+                        </div>
+                        <div class="header-right" style="text-align: right;"> https://github.com/sujit-saravanan </div>
+                    </div>
+                    <div class="section">
+                        <div class="section_title">Profile</div>
+                        Computer Science student at Penn State, with a strong
+                        passion for systems programming and writing clean, performant code. Key strengths include a deep
+                        understanding of Data Oriented Design philosophies, low level hardware design, and graphics
+                        programming.
+                    </div>
+                    <div class="section">
+                        <div class="section_title">Education</div>
+                        <div>
+        <div class="subsection3">
+            <div class="subsection_elem_left"><b>University Park</b></div>
+            <div class="subsection_elem_center"><b>Pennsylvania State University</b></div>
+            <div class="subsection_elem_right"><b>Fall 2020 - Fall 2023</b></div>
+        </div>
+    </div>
+
+                        <div>
+        <div class="subsection2">
+            <div class="subsection_elem_left"><li>B.S. in Computer Science, Fall 2023.</li></div>
+            <div class="subsection_elem_right">Current GPA: 3.28</div>
+        </div>
+    </div>
+
+                    </div>
+                    <div class="section">
+                        <div class="section_title">Technical Abilities</div>
+                        <li><b>Languages:</b> C++; C; MIPS Assembly; Verilog; Python; JavaScript/HTML/CSS; Odin</li>
+                        <li><b>Tools/Libraries:</b> Linux; CMake; Vulkan; OpenGL; Git; JetBrains Products; Vivado; Fusion360; KiCAD</li>
+                        <li><b>Skills:</b> Microcontroller Design; 3D Modelling; 3D Printing; CNC Machining; PCB Design;Public Speaking</li>
+                    </div>
+                    <div clas="section">
+                        <div class="section_title">Projects</div>
+                        <div style="display: flex; flex-direction: column; gap: 1rem;">
+                            <div>
+    <div class="subsection2">
+        <div class="subsection_elem_left"><b>Data-Orienteed OpenGL Text Editor (2023):</b></div>
+        <div class="subsection_elem_right"><b>C; C++; OpenGL; JetBrains IDE</b></div>
+    </div>
+    <li>
+                                An extremely performant text editor that makes use of modern OpenGL and Data Oriented
+                                Design philosophies. Features a vector of gap buffers in order to reduce the impact of
+                                having to insert characters into a string.
+                            </li>
+</div>
+
+
+                            <div>
+    <div class="subsection2">
+        <div class="subsection_elem_left"><b>Pipelined MIPS Processor (2022):</b></div>
+        <div class="subsection_elem_right"><b>Verilog; MIPS Assembly; Vivado</b></div>
+    </div>
+    <li>
+                                A pipelined microcontroller designed in Verilog, that is capable of running MIPS
+                                assembly. It contains built in memory for both instructions as well as data, and
+                                supports forwarding between stages in order to avoid stalls.
+                            </li>
+</div>
+
+
+                            <div>
+    <div class="subsection2">
+        <div class="subsection_elem_left"><b>Stitch (2022):</b></div>
+        <div class="subsection_elem_right"><b>C; C++; CMake; JetBrains IDE</b></div>
+    </div>
+    <li>
+                                A performant, opinionated build system and project initialization/management tool that
+                                automatically generates CMakeLists.txt files based on the include tree of the project's
+                                module headers.
+                            </li>
+</div>
+
+
+                            <div>
+    <div class="subsection2">
+        <div class="subsection_elem_left"><b>Fast List (2022):</b></div>
+        <div class="subsection_elem_right"><b>C; C++; JetBrains IDE</b></div>
+    </div>
+    <li>
+                                A linked list implementation designed around minimizing cache misses and amortizing
+                                memory overhead. Benchmarks indicate a 3-5x performance improvement over std::list for
+                                standard operations.
+                            </li>
+</div>
+
+                        </div>
+                    </div>
+                    <div class="section">
+                        <div class="section_title">Employment</div>
+                        <div style="display: flex; flex-direction: column; gap: 1rem;">
+                            <div>
+        <div class="subsection3">
+            <div class="subsection_elem_left"><b>Employee</b></div>
+            <div class="subsection_elem_center"><b>Penn State CMPEN 497 Grader</b></div>
+            <div class="subsection_elem_right"><b>Spring 2023 - Present</b></div>
+        </div>
+        
+                                <li>Graded student assignments and updated scores to the grading portal in a
+                                    timely manner.</li>
+                                <li>Made sure grading was transparent and students were understanding of the grades
+                                    they received.</li>
+                            
+    </div>
+
+                            <div>
+        <div class="subsection3">
+            <div class="subsection_elem_left"><b>Volunteer</b></div>
+            <div class="subsection_elem_center"><b>Community Empowerment Northern Virginia</b></div>
+            <div class="subsection_elem_right"><b>Summer 2019</b></div>
+        </div>
+        
+                                <li>Sole data entry specialist in charge of maintaining CENV's consumer information
+                                    database.</li>
+                                <li>Scanned
+                                    vital documents and typed out relevant information into a database in order to keep
+                                    essential company records.</li>
+                                <li>Introduced an alternative method of data registry that allowed a more
+                                    efficient way for consumer information to be directly inputted into the company
+                                    database.</li>
+                                <li>Garnered 67.5 total volunteer hours throughout my experience with CENV.</li>
+                            
+    </div>
+
+                        </div>
+                    </div>
+                    <div class="section">
+                        <div class="section_title">Additional Experience and Awards</div>
+                        • OSHA Certification (2020): Completed the online, 10 Hour OSHA Certification Course.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="ProjectsWindow" class="window" style="width: 1000px; height: 700px;">
+        <div class="window_title_bar">
+            <div class="window_title_bar_draggable">
+                <div class="window_title"> 
+                    <img src = "assets/textures/opti/folder-5.png" class="window_title_image">
+                    <div class="window_title_text"> Projects </div>
+                </div>
+            </div>
+            <div class="window_management_buttons">
+                <button class="minimize_window_management_button" onclick="minimize_window(this)"></button>
+                <button class="maximize_window_management_button" onclick="maximize_window(this)"></button>
+                <button class="close_window_management_button"    onclick="close_window(this)"></button>
+            </div>
+        </div>
+        <div class="window_menu_bar">
+            <div><u>F</u>ile</div>
+            <div><u>E</u>dit</div>
+            <div><u>V</u>iew</div>
+            <div><u>H</u>elp</div>
+            </div>
+        <div class="window_content" style="height: 100%">
+            <div class="file_explorer">
+                <div class="icon_grid" style="flex-direction: row; color: black; margin-top: 0px; padding-top: 0.5rem;">
+                    <div class="folder_icon_container" onclick="folder_icon_onclick(this)" ondblclick="folder_icon_ondbclick(this)">
+        <img class="icon_image" src="assets/textures/opti/document.png" alt="test" draggable="false">
+        <div class="selection-effect" style="--icon-image: url(&quot;assets/textures/opti/document.png&quot;);"></div>
+        <p class="icon_name" style="color:black">test</p>
+    </div>
+
+                    <div class="folder_icon_container" onclick="folder_icon_onclick(this)" ondblclick="folder_icon_ondbclick(this)">
+        <img class="icon_image" src="assets/textures/opti/folder_with_content.png" alt="Projects" draggable="false">
+        <div class="selection-effect" style="--icon-image: url(&quot;assets/textures/opti/folder_with_content.png&quot;);"></div>
+        <p class="icon_name" style="color:black">Projects</p>
+    </div>
+
+                    <div class="folder_icon_container" onclick="folder_icon_onclick(this)" ondblclick="folder_icon_ondbclick(this)">
+        <img class="icon_image" src="assets/textures/opti/mailbox_world.png" alt="Contact Me" draggable="false">
+        <div class="selection-effect" style="--icon-image: url(&quot;assets/textures/opti/mailbox_world.png&quot;);"></div>
+        <p class="icon_name" style="color:black">Contact Me</p>
+    </div>
+
+                    <div class="folder_icon_container" onclick="folder_icon_onclick(this)" ondblclick="folder_icon_ondbclick(this)">
+        <img class="icon_image" src="assets/textures/opti/help_book.png" alt="Help" draggable="false">
+        <div class="selection-effect" style="--icon-image: url(&quot;assets/textures/opti/help_book.png&quot;);"></div>
+        <p class="icon_name" style="color:black">Help</p>
+    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="file_footer">
+            <div class="file_footer_elem">
+                6 object(s)
+            </div>
+            <div class="file_footer_elem">
+                6 object(s)
+            </div>
+        </div>
+    </div>
+
+    <div id="ContactWindow" class="window" style="width: 1000px; height: 700px;">
+        <div class="window_title_bar">
+            <div class="window_title_bar_draggable">
+                <div class="window_title"> 
+                    <img src = "assets/textures/opti/folder-5.png" class="window_title_image">
+                    <div class="window_title_text"> Contact Me </div>
+                </div>
+            </div>
+            <div class="window_management_buttons">
+                <button class="minimize_window_management_button" onclick="minimize_window(this)"></button>
+                <button class="maximize_window_management_button" onclick="maximize_window(this)"></button>
+                <button class="close_window_management_button"    onclick="close_window(this)"></button>
+            </div>
+        </div>
+        <div class="window_content">
+            <div class="pdf">
+                <div class="pdf_content" style="font-family: 'Times New Roman', Times, serif;">
+                    <div class="header">
+                        <div class="header-left">
+                            <div class="header-left-top">sujitsaravanan15@gmail.com</div>
+                            <div class="header-left-bottom">(571) 361-9963</div>
+                        </div>
+                        <div class="header-center">
+                            <div class="header-center-top">Sujit Saravanan</div>
+                            <div class="header-center-bottom">https://sujit-saravanan.github.io/portfolio/ </div>
+                        </div>
+                        <div class="header-right" style="text-align: right;"> https://github.com/sujit-saravanan </div>
+                    </div>
+                    <div class="section">
+                        <div class="section_title">Profile</div>
+                        Computer Science student at Penn State, with a strong
+                        passion for systems programming and writing clean, performant code. Key strengths include a deep
+                        understanding of Data Oriented Design philosophies, low level hardware design, and graphics
+                        programming.
+                    </div>
+                    <div class="section">
+                        <div class="section_title">Education</div>
+                        <div>
+        <div class="subsection3">
+            <div class="subsection_elem_left"><b>University Park</b></div>
+            <div class="subsection_elem_center"><b>Pennsylvania State University</b></div>
+            <div class="subsection_elem_right"><b>Fall 2020 - Fall 2023</b></div>
+        </div>
+    </div>
+
+                        <div>
+        <div class="subsection2">
+            <div class="subsection_elem_left"><li>B.S. in Computer Science, Fall 2023.</li></div>
+            <div class="subsection_elem_right">Current GPA: 3.28</div>
+        </div>
+    </div>
+
+                    </div>
+                    <div class="section">
+                        <div class="section_title">Technical Abilities</div>
+                        <li><b>Languages:</b> C++; C; MIPS Assembly; Verilog; Python; JavaScript/HTML/CSS; Odin</li>
+                        <li><b>Tools/Libraries:</b> Linux; CMake; Vulkan; OpenGL; Git; JetBrains Products; Vivado; Fusion360; KiCAD</li>
+                        <li><b>Skills:</b> Microcontroller Design; 3D Modelling; 3D Printing; CNC Machining; PCB Design;Public Speaking</li>
+                    </div>
+                    <div clas="section">
+                        <div class="section_title">Projects</div>
+                        <div style="display: flex; flex-direction: column; gap: 1rem;">
+                            <div>
+    <div class="subsection2">
+        <div class="subsection_elem_left"><b>Data-Orienteed OpenGL Text Editor (2023):</b></div>
+        <div class="subsection_elem_right"><b>C; C++; OpenGL; JetBrains IDE</b></div>
+    </div>
+    <li>
+                                An extremely performant text editor that makes use of modern OpenGL and Data Oriented
+                                Design philosophies. Features a vector of gap buffers in order to reduce the impact of
+                                having to insert characters into a string.
+                            </li>
+</div>
+
+
+                            <div>
+    <div class="subsection2">
+        <div class="subsection_elem_left"><b>Pipelined MIPS Processor (2022):</b></div>
+        <div class="subsection_elem_right"><b>Verilog; MIPS Assembly; Vivado</b></div>
+    </div>
+    <li>
+                                A pipelined microcontroller designed in Verilog, that is capable of running MIPS
+                                assembly. It contains built in memory for both instructions as well as data, and
+                                supports forwarding between stages in order to avoid stalls.
+                            </li>
+</div>
+
+
+                            <div>
+    <div class="subsection2">
+        <div class="subsection_elem_left"><b>Stitch (2022):</b></div>
+        <div class="subsection_elem_right"><b>C; C++; CMake; JetBrains IDE</b></div>
+    </div>
+    <li>
+                                A performant, opinionated build system and project initialization/management tool that
+                                automatically generates CMakeLists.txt files based on the include tree of the project's
+                                module headers.
+                            </li>
+</div>
+
+
+                            <div>
+    <div class="subsection2">
+        <div class="subsection_elem_left"><b>Fast List (2022):</b></div>
+        <div class="subsection_elem_right"><b>C; C++; JetBrains IDE</b></div>
+    </div>
+    <li>
+                                A linked list implementation designed around minimizing cache misses and amortizing
+                                memory overhead. Benchmarks indicate a 3-5x performance improvement over std::list for
+                                standard operations.
+                            </li>
+</div>
+
+                        </div>
+                    </div>
+                    <div class="section">
+                        <div class="section_title">Employment</div>
+                        <div style="display: flex; flex-direction: column; gap: 1rem;">
+                            <div>
+        <div class="subsection3">
+            <div class="subsection_elem_left"><b>Employee</b></div>
+            <div class="subsection_elem_center"><b>Penn State CMPEN 497 Grader</b></div>
+            <div class="subsection_elem_right"><b>Spring 2023 - Present</b></div>
+        </div>
+        
+                                <li>Graded student assignments and updated scores to the grading portal in a
+                                    timely manner.</li>
+                                <li>Made sure grading was transparent and students were understanding of the grades
+                                    they received.</li>
+                            
+    </div>
+
+                            <div>
+        <div class="subsection3">
+            <div class="subsection_elem_left"><b>Volunteer</b></div>
+            <div class="subsection_elem_center"><b>Community Empowerment Northern Virginia</b></div>
+            <div class="subsection_elem_right"><b>Summer 2019</b></div>
+        </div>
+        
+                                <li>Sole data entry specialist in charge of maintaining CENV's consumer information
+                                    database.</li>
+                                <li>Scanned
+                                    vital documents and typed out relevant information into a database in order to keep
+                                    essential company records.</li>
+                                <li>Introduced an alternative method of data registry that allowed a more
+                                    efficient way for consumer information to be directly inputted into the company
+                                    database.</li>
+                                <li>Garnered 67.5 total volunteer hours throughout my experience with CENV.</li>
+                            
+    </div>
+
+                        </div>
+                    </div>
+                    <div class="section">
+                        <div class="section_title">Additional Experience and Awards</div>
+                        • OSHA Certification (2020): Completed the online, 10 Hour OSHA Certification Course.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="icon_grid">
+        <div class="icon_container" onclick="icon_onclick(this)" ondblclick="icon_ondbclick(this)">
+    <img class="icon_image" src="assets/textures/opti/document.png" alt="Resume" draggable="false">
+    <div class="selection-effect" style="--icon-image: url(&quot;assets/textures/opti/document.png&quot;);"></div>
+    <p class="icon_name">Resume</p>
+</div>
+
+        <div class="icon_container" onclick="icon_onclick(this)" ondblclick="icon_ondbclick(this)">
+    <img class="icon_image" src="assets/textures/opti/folder_with_content.png" alt="Projects" draggable="false">
+    <div class="selection-effect" style="--icon-image: url(&quot;assets/textures/opti/folder_with_content.png&quot;);"></div>
+    <p class="icon_name">Projects</p>
+</div>
+
+        <div class="icon_container" onclick="icon_onclick(this)" ondblclick="icon_ondbclick(this)">
+    <img class="icon_image" src="assets/textures/opti/mailbox_world.png" alt="Contact Me" draggable="false">
+    <div class="selection-effect" style="--icon-image: url(&quot;assets/textures/opti/mailbox_world.png&quot;);"></div>
+    <p class="icon_name">Contact Me</p>
+</div>
+
+        <div class="icon_container" onclick="icon_onclick(this)" ondblclick="icon_ondbclick(this)">
+    <img class="icon_image" src="assets/textures/opti/help_book.png" alt="Help" draggable="false">
+    <div class="selection-effect" style="--icon-image: url(&quot;assets/textures/opti/help_book.png&quot;);"></div>
+    <p class="icon_name">Help</p>
+</div>
+
+    </div>
+
+    <div id="taskbar">
+        <div class="taskbar-button start" onmousedown="this.classList.add('clicked')" onmouseleave="this.classList.remove('clicked')"" onmouseup="this.classList.remove('clicked')">
+            <div class="taskbar-button-content">
+                <img class="icon_image" src="assets/textures/opti/windows-5.png" alt="$$icon_name" draggable="false">
+                Start
+            </div>
+            
+        </div>
+    </div>
+
+    <script src="main.js" defer></script>
+</body>
+
+</html>
