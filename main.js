@@ -1,16 +1,19 @@
 const taskbar = document.getElementById("taskbar");
 const window_position_map = new Map();
+const window_open_map = new Map();
 let current_window_z = 2;
 let current_button = null;
 
 windows = document.getElementsByClassName("window")
 
 for (let i = 0; i < windows.length; i++) {
-    window_position_map.set(windows[i].id, {top: document.documentElement.clientHeight * 0.05, left: document.documentElement.clientWidth * 0.25, bottom: document.documentElement.clientHeight * 0.05 + 700, right: document.documentElement.clientWidth * 0.25 + 1000})
+    window_position_map.set(windows[i].id, {top: document.documentElement.clientHeight * 0.125, left: document.documentElement.clientWidth * 0.125, bottom: document.documentElement.clientHeight * 0.875, right: document.documentElement.clientWidth * 0.875})
+    window_open_map.set(windows[i].id, false);
     windows[i].style.zIndex = current_window_z;
     current_window_z++;
     makeDraggable(windows[i]);
 }
+
 let current_active_window = windows[windows.length-1];
 
 function icon_onclick(icon) {
@@ -28,37 +31,49 @@ function folder_icon_onclick(icon) {
 function folder_icon_ondbclick(icon) {
     switch (icon.children[2].innerText) {
         case "Resume":
-            resume_window = document.getElementById("ResumeWindow");
-            resume_window.style.display = "flex";
-            makeWindowActive(resume_window)
-            let resume_button = document.createElement("button");
-            resume_button.id = "ResumeButton";
-            resume_button.textContent = "Resume";
-            taskbar.appendChild(resume_button);
+            if (!window_open_map.get("ResumeWindow")){
+                window_open_map.set("ResumeWindow", true);
+                resume_window = document.getElementById("ResumeWindow");
+                resume_window.style.display = "flex";
+                makeWindowActive(resume_window);
+                let resume_button = document.createElement("button");
+                resume_button.id = "ResumeButton";
+                resume_button.textContent = "Resume";
+                taskbar.appendChild(resume_button);
+            }
             break;
         case "Projects":
-            projects_window = document.getElementById("ProjectsWindow")
-            projects_window.style.display = "flex";
-            makeWindowActive(projects_window)
-            let projects_button = document.createElement("button");
-            projects_button.id = "ProjectsButton";
-            projects_button.textContent = "Projects";
-            taskbar.appendChild(projects_button);
+            if (!window_open_map.get("ResumeWindow")){
+                window_open_map.set("ResumeWindow", true);
+                projects_window = document.getElementById("ProjectsWindow")
+                projects_window.style.display = "flex";
+                makeWindowActive(projects_window)
+                let projects_button = document.createElement("button");
+                projects_button.id = "ProjectsButton";
+                projects_button.textContent = "Projects";
+                taskbar.appendChild(projects_button);
+            }
             break;
         case "Contact Me":
-            var email = "sujitsaravanan15@gmail.com";
-            var subject = "Contact from portfolio";
-            var emailBody = "message.from";
-            document.location = "mailto:"+email+"?subject="+subject+"&body=";
+            if (!window_open_map.get("ResumeWindow")){
+                window_open_map.set("ResumeWindow", true);
+                var email = "sujitsaravanan15@gmail.com";
+                var subject = "Contact from portfolio";
+                var emailBody = "message.from";
+                document.location = "mailto:"+email+"?subject="+subject+"&body=";
+            }
             break;
         case "Help":
-            help_window = document.getElementById("HelpWindow")
-            help_window.style.display = "flex";
-            makeWindowActive(help_window)
-            let help_button = document.createElement("button");
-            help_button.id = "HelpButton";
-            help_button.textContent = "Help Me";
-            taskbar.appendChild(help_button);
+            if (!window_open_map.get("ResumeWindow")){
+                window_open_map.set("ResumeWindow", true);
+                help_window = document.getElementById("HelpWindow")
+                help_window.style.display = "flex";
+                makeWindowActive(help_window)
+                let help_button = document.createElement("button");
+                help_button.id = "HelpButton";
+                help_button.textContent = "Help Me";
+                taskbar.appendChild(help_button);
+            }
             break;
         default:
     }
@@ -79,16 +94,22 @@ function construct_taskbar_button(button_id, button_name, window_id, texture_fil
 function icon_ondbclick(icon) {
     switch (icon.children[2].innerText) {
         case "Resume":
-            resume_window = document.getElementById("ResumeWindow");
-            resume_window.style.display = "flex";
-            construct_taskbar_button("ResumeButton", "Resume", "ResumeWindow", "assets/textures/opti/document-2.png")
-            makeWindowActive(resume_window)
+            if (!window_open_map.get("ResumeWindow")){
+                window_open_map.set("ResumeWindow", true);
+                resume_window = document.getElementById("ResumeWindow");
+                resume_window.style.display = "flex";
+                construct_taskbar_button("ResumeButton", "Resume", "ResumeWindow", "assets/textures/opti/document-2.png")
+                makeWindowActive(resume_window)
+            }
             break;
         case "Projects":
-            projects_window = document.getElementById("ProjectsWindow")
-            projects_window.style.display = "flex";
-            construct_taskbar_button("ProjectsButton", "Projects", "ProjectsWindow", "assets/textures/opti/folder-5.png")
-            makeWindowActive(projects_window)
+            if (!window_open_map.get("ProjectsWindow")){
+                window_open_map.set("ProjectsWindow", true);
+                projects_window = document.getElementById("ProjectsWindow")
+                projects_window.style.display = "flex";
+                construct_taskbar_button("ProjectsButton", "Projects", "ProjectsWindow", "assets/textures/opti/folder-5.png")
+                makeWindowActive(projects_window)
+            }
             break;
         case "Contact Me":
             var email = "sujitsaravanan15@gmail.com";
@@ -97,10 +118,13 @@ function icon_ondbclick(icon) {
             document.location = "mailto:"+email+"?subject="+subject+"&body=";
             break;
         case "Help":
-            help_window = document.getElementById("HelpWindow")
-            help_window.style.display = "flex";
-            construct_taskbar_button("HelpButton", "Help", "HelpWindow", "assets/textures/opti/help-book-3.png")
-            makeWindowActive(help_window)
+            if (!window_open_map.get("HelpWindow")){
+                window_open_map.set("HelpWindow", true);
+                help_window = document.getElementById("HelpWindow")
+                help_window.style.display = "flex";
+                construct_taskbar_button("HelpButton", "Help", "HelpWindow", "assets/textures/opti/help-book-3.png")
+                makeWindowActive(help_window)
+            }
             break;
         default:
     }
@@ -129,6 +153,7 @@ function clear_selected_icons() {
 
 function makeWindowActive(window) {
     button = getWindowTaskbarButton(window)
+    window.style.display = "flex";
 
     if (current_button == null)
         current_button = button;
@@ -159,7 +184,6 @@ function makeDraggable(elmnt) {
     let lefts = window_position_map.get(elmnt.id).left;
 
     let currentPosX = 0, currentPosY = 0, previousPosX = 0, previousPosY = 0;
-    console.log({tops, bots, rights, lefts})
 
     // If there is a window-top classed element, attach to that element instead of full window
     elmnt.querySelector('.window_title_bar_draggable').onmousedown = dragMouseDown;
@@ -196,6 +220,7 @@ function makeDraggable(elmnt) {
             new_cursor = "default";
             elmnt.onmousedown = null;
         } else {
+
             new_cursor += "-resize";
         }
 
@@ -233,47 +258,56 @@ function makeDraggable(elmnt) {
     
     function resizeMouseDownSouthEast(e){
         e.preventDefault();
+        setActive();
         document.onmouseup = closeDragElement;
         document.onmousemove = elementResizeSouthEast;
     }
     function resizeMouseDownNorthEast(e){
         e.preventDefault();
+        setActive();
         document.onmouseup = closeDragElement;
         document.onmousemove = elementResizeNorthEast;
     }
     function resizeMouseDownSouthWest(e){
         e.preventDefault();
+        setActive();
         document.onmouseup = closeDragElement;
         document.onmousemove = elementResizeSouthWest;
     }
     function resizeMouseDownNorthWest(e){
         e.preventDefault();
+        setActive();
         document.onmouseup = closeDragElement;
         document.onmousemove = elementResizeNorthWest;
     }
 
     function resizeMouseDownNorth(e){
         e.preventDefault();
+        setActive();
         document.onmouseup = closeDragElement;
         document.onmousemove = elementResizeNorth;
     }
     function resizeMouseDownSouth(e){
         e.preventDefault();
+        setActive();
         document.onmouseup = closeDragElement;
         document.onmousemove = elementResizeSouth;
     }
     function resizeMouseDownEast(e){
         e.preventDefault();
+        setActive();
         document.onmouseup = closeDragElement;
         document.onmousemove = elementResizeEast;
     }
     function resizeMouseDownWest(e){
         e.preventDefault();
+        setActive();
         document.onmouseup = closeDragElement;
         document.onmousemove = elementResizeWest;
     }
 
 
+    let min_width = 170;
     function elementResizeSouthEast(e){
         e.preventDefault();
         updatePos()
@@ -285,7 +319,7 @@ function makeDraggable(elmnt) {
         
         if (bots - tops <= 200)
             bots = prev_bots;
-        if (rights - lefts <= 200)
+        if (rights - lefts <= min_width)
             rights = prev_rights;
             
         window_position_map.set(elmnt.id, {top: tops, left: lefts, bottom: bots, right: rights})
@@ -303,7 +337,7 @@ function makeDraggable(elmnt) {
         
         if (bots - tops <= 200)
             tops = prev_tops;
-        if (rights - lefts <= 200)
+        if (rights - lefts <= min_width)
             rights = prev_rights;
             
         window_position_map.set(elmnt.id, {top: tops, left: lefts, bottom: bots, right: rights})
@@ -322,7 +356,7 @@ function makeDraggable(elmnt) {
         
         if (bots - tops <= 200)
             bots = prev_bots;
-        if (rights - lefts <= 200)
+        if (rights - lefts <= min_width)
             lefts = prev_lefts;
             
         window_position_map.set(elmnt.id, {top: tops, left: lefts, bottom: bots, right: rights})
@@ -341,7 +375,7 @@ function makeDraggable(elmnt) {
         
         if (bots - tops <= 200)
             tops = prev_tops;
-        if (rights - lefts <= 200)
+        if (rights - lefts <= min_width)
             lefts = prev_lefts;
             
         window_position_map.set(elmnt.id, {top: tops, left: lefts, bottom: bots, right: rights})
@@ -355,7 +389,6 @@ function makeDraggable(elmnt) {
         e.preventDefault();
         // updatePos()
 
-        console.log(window_position_map.get(elmnt.id))
         prev_tops = tops;
         tops = e.clientY;
         
@@ -386,7 +419,7 @@ function makeDraggable(elmnt) {
         prev_rights = rights
         rights = e.clientX;
 
-        if (rights - lefts <= 200)
+        if (rights - lefts <= min_width)
             rights = prev_rights;
 
         window_position_map.set(elmnt.id, {top: tops, left: lefts, bottom: bots, right: rights})
@@ -399,7 +432,7 @@ function makeDraggable(elmnt) {
         prev_lefts = lefts;
         lefts = e.clientX;
 
-        if (rights - lefts  <= 200)
+        if (rights - lefts  <= min_width)
             lefts = prev_lefts;
 
         window_position_map.set(elmnt.id, {top: tops, left: lefts, bottom: bots, right: rights})
@@ -473,16 +506,34 @@ function close_window(button){
 }
 function minimize_window(button){
     const window = button.parentNode.parentNode.parentNode;
+
+    makeWindowActive(window);
+    button = getWindowTaskbarButton(window);
+    button.classList.remove("window-clicked");
+    current_button = null;
+
     window.style.display = "none";
 }
 function maximize_window(button){
     const window = button.parentNode.parentNode.parentNode;
-    makeWindowActive(window);
     const maximized_positions = {top: 0, left: 0, bottom: document.documentElement.scrollHeight - taskbar.offsetHeight - 4, right: document.documentElement.scrollWidth - 4};
-    window_position_map.set(window.id, maximized_positions)
-
-    window.style.top = maximized_positions.top + "px";
-    window.style.left = maximized_positions.left + "px";
-    window.style.width = maximized_positions.right + "px";
-    window.style.height = maximized_positions.bottom + "px";
+    const resized_positions = {top: document.documentElement.clientHeight * 0.125, left: document.documentElement.clientWidth * 0.125, bottom: document.documentElement.clientHeight * 0.875, right: document.documentElement.clientWidth * 0.875};
+    if (window.style.top    != maximized_positions.top + "px"   || window.style.left   != maximized_positions.left + "px"  || window.style.width  != maximized_positions.right + "px" || window.style.height != maximized_positions.bottom + "px" ) {
+        button.style.backgroundImage = "url(\"data:image/svg+xml;charset=utf-8,%3Csvg width='6' height='2' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23000' d='M0 0h6v2H0z'/%3E%3C/svg%3E\");"
+        makeWindowActive(window);
+        window_position_map.set(window.id, maximized_positions)
+    
+        window.style.top = maximized_positions.top + "px";
+        window.style.left = maximized_positions.left + "px";
+        window.style.width = maximized_positions.right + "px";
+        window.style.height = maximized_positions.bottom + "px";
+    } else {
+        makeWindowActive(window);
+        window_position_map.set(window.id, resized_positions)
+    
+        window.style.top = resized_positions.top + "px";
+        window.style.left = resized_positions.left + "px";
+        window.style.width = resized_positions.right - resized_positions.left + "px";
+        window.style.height = resized_positions.bottom - resized_positions.top + "px";
+    }
 }
