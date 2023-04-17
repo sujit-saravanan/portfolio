@@ -28,55 +28,62 @@ function folder_icon_onclick(icon) {
 
     icon.children[2].style.outlineStyle = "dotted";
 }
-function folder_icon_ondbclick(icon) {
-    switch (icon.children[2].innerText) {
-        case "Resume":
-            if (!window_open_map.get("ResumeWindow")){
-                window_open_map.set("ResumeWindow", true);
-                resume_window = document.getElementById("ResumeWindow");
-                resume_window.style.display = "flex";
-                makeWindowActive(resume_window);
-                let resume_button = document.createElement("button");
-                resume_button.id = "ResumeButton";
-                resume_button.textContent = "Resume";
-                taskbar.appendChild(resume_button);
-            }
-            break;
-        case "Projects":
-            if (!window_open_map.get("ResumeWindow")){
-                window_open_map.set("ResumeWindow", true);
-                projects_window = document.getElementById("ProjectsWindow")
-                projects_window.style.display = "flex";
-                makeWindowActive(projects_window)
-                let projects_button = document.createElement("button");
-                projects_button.id = "ProjectsButton";
-                projects_button.textContent = "Projects";
-                taskbar.appendChild(projects_button);
-            }
-            break;
-        case "Contact Me":
-            if (!window_open_map.get("ResumeWindow")){
-                window_open_map.set("ResumeWindow", true);
-                var email = "sujitsaravanan15@gmail.com";
-                var subject = "Contact from portfolio";
-                var emailBody = "message.from";
-                document.location = "mailto:"+email+"?subject="+subject+"&body=";
-            }
-            break;
-        case "Help":
-            if (!window_open_map.get("ResumeWindow")){
-                window_open_map.set("ResumeWindow", true);
-                help_window = document.getElementById("HelpWindow")
-                help_window.style.display = "flex";
-                makeWindowActive(help_window)
-                let help_button = document.createElement("button");
-                help_button.id = "HelpButton";
-                help_button.textContent = "Help Me";
-                taskbar.appendChild(help_button);
-            }
-            break;
-        default:
+
+var intervalRewind;
+function playVideo(video){
+    video.play();
+    clearInterval(intervalRewind);
+}
+function pauseVideo(video){
+    video.pause();
+    clearInterval(intervalRewind);
+}
+function stopVideo(video){
+    video.pause();
+    video.currentTime = 0;
+    clearInterval(intervalRewind);
+}
+
+function beginVideo(video){
+    video.currentTime = 0;
+    clearInterval(intervalRewind);
+}
+function reverseVideo(video){
+    intervalRewind = setInterval(function(){
+        video.playbackRate = 1.0;
+        if(video.currentTime == 0){
+            clearInterval(intervalRewind);
+            video.pause();
+        }
+        else{
+            video.currentTime += -.1;
+        }
+    } , 30);
+}
+function forwardVideo(video){
+    video.playbackRate = 1;
+    clearInterval(intervalRewind);
+}
+function endVideo(video){
+    video.currentTime = video.duration;
+    clearInterval(intervalRewind);
+}
+
+
+function open_window(prefix){
+    if (!window_open_map.get(prefix+"Window")){
+        window_open_map.set(prefix+"Window", true);
+        target_window = document.getElementById(prefix+"Window");
+        target_window.style.display = "flex";
+        construct_taskbar_button(prefix+"Button", prefix, prefix+"Window", "assets/textures/opti/document-2.png")
+        makeWindowActive(target_window)
     }
+}
+
+function open_email(){
+    var email = "sujitsaravanan15@gmail.com";
+            var subject = "Contact from portfolio";
+            document.location = "mailto:"+email+"?subject="+subject+"&body=";
 }
 
 function construct_taskbar_button(button_id, button_name, window_id, texture_filepath){
@@ -89,45 +96,6 @@ function construct_taskbar_button(button_id, button_name, window_id, texture_fil
 
     new_button.setAttribute( "onClick", "makeWindowActive(document.getElementById(\"" + window_id + "\"))" );
     taskbar.appendChild(new_button);
-}
-
-function icon_ondbclick(icon) {
-    switch (icon.children[2].innerText) {
-        case "Resume":
-            if (!window_open_map.get("ResumeWindow")){
-                window_open_map.set("ResumeWindow", true);
-                resume_window = document.getElementById("ResumeWindow");
-                resume_window.style.display = "flex";
-                construct_taskbar_button("ResumeButton", "Resume", "ResumeWindow", "assets/textures/opti/document-2.png")
-                makeWindowActive(resume_window)
-            }
-            break;
-        case "Projects":
-            if (!window_open_map.get("ProjectsWindow")){
-                window_open_map.set("ProjectsWindow", true);
-                projects_window = document.getElementById("ProjectsWindow")
-                projects_window.style.display = "flex";
-                construct_taskbar_button("ProjectsButton", "Projects", "ProjectsWindow", "assets/textures/opti/folder-5.png")
-                makeWindowActive(projects_window)
-            }
-            break;
-        case "Contact Me":
-            var email = "sujitsaravanan15@gmail.com";
-            var subject = "Contact from portfolio";
-            var emailBody = "message.from";
-            document.location = "mailto:"+email+"?subject="+subject+"&body=";
-            break;
-        case "Help":
-            if (!window_open_map.get("HelpWindow")){
-                window_open_map.set("HelpWindow", true);
-                help_window = document.getElementById("HelpWindow")
-                help_window.style.display = "flex";
-                construct_taskbar_button("HelpButton", "Help", "HelpWindow", "assets/textures/opti/help-book-3.png")
-                makeWindowActive(help_window)
-            }
-            break;
-        default:
-    }
 }
 
 function clear_selected_icons() {
@@ -307,7 +275,8 @@ function makeDraggable(elmnt) {
     }
 
 
-    let min_width = 170;
+    let min_width = 400;
+    let min_height = 400;
     function elementResizeSouthEast(e){
         e.preventDefault();
         updatePos()
@@ -317,7 +286,7 @@ function makeDraggable(elmnt) {
         bots = e.clientY;
         rights = e.clientX;
         
-        if (bots - tops <= 200)
+        if (bots - tops <= min_height)
             bots = prev_bots;
         if (rights - lefts <= min_width)
             rights = prev_rights;
@@ -335,7 +304,7 @@ function makeDraggable(elmnt) {
         tops = e.clientY;
         rights = e.clientX;
         
-        if (bots - tops <= 200)
+        if (bots - tops <= min_height)
             tops = prev_tops;
         if (rights - lefts <= min_width)
             rights = prev_rights;
@@ -354,7 +323,7 @@ function makeDraggable(elmnt) {
         bots = e.clientY;
         lefts = e.clientX;
         
-        if (bots - tops <= 200)
+        if (bots - tops <= min_height)
             bots = prev_bots;
         if (rights - lefts <= min_width)
             lefts = prev_lefts;
@@ -373,7 +342,7 @@ function makeDraggable(elmnt) {
         tops = e.clientY;
         lefts = e.clientX;
         
-        if (bots - tops <= 200)
+        if (bots - tops <= min_height)
             tops = prev_tops;
         if (rights - lefts <= min_width)
             lefts = prev_lefts;
@@ -392,7 +361,7 @@ function makeDraggable(elmnt) {
         prev_tops = tops;
         tops = e.clientY;
         
-        if (bots - tops <= 200)
+        if (bots - tops <= min_height)
             tops = prev_tops;
 
         window_position_map.set(elmnt.id, {top: tops, left: lefts, bottom: bots, right: rights})
@@ -406,7 +375,7 @@ function makeDraggable(elmnt) {
         prev_bots = bots;
         bots = e.clientY;
 
-        if (bots - tops <= 200)
+        if (bots - tops <= min_height)
             bots = prev_bots;
 
         window_position_map.set(elmnt.id, {top: tops, left: lefts, bottom: bots, right: rights})
@@ -490,15 +459,22 @@ function close_window(button){
     window.style.display = "none";
     switch (window.id) {
         case "ResumeWindow":
+            window_open_map.set("ResumeWindow", false)
             taskbar.removeChild(document.getElementById("ResumeButton"));
             break;
+        case "CourseworkWindow":
+            window_open_map.set("CourseworkWindow", false)
+            taskbar.removeChild(document.getElementById("CourseworkButton"));
+            break;
         case "ProjectsWindow":
+            window_open_map.set("ProjectsWindow", false)
             taskbar.removeChild(document.getElementById("ProjectsButton"));
             break;
         case "ContactWindow":
             taskbar.removeChild(document.getElementById("ContactButton"));
             break;
         case "HelpWindow":
+            window_open_map.set("HelpWindow", false)
             taskbar.removeChild(document.getElementById("HelpButton"));
             break;
         default:

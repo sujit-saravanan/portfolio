@@ -361,6 +361,50 @@
         </div>
     </div>
 
+
+
+    <div id="VoxelProjectWindow" class="window">
+        <div class="window_title_bar">
+            <div class="window_title_bar_draggable">
+                <div class="window_title">
+                    <img src="assets/textures/opti/document-2.png" class="window_title_image">
+                    <div class="window_title_text"> Realtime CPU-Only Voxel Raytracer </div>
+                </div>
+            </div>
+            <div class="window_management_buttons">
+                <button class="minimize_window_management_button" onclick="minimize_window(this)"></button>
+                <button class="maximize_window_management_button" onclick="maximize_window(this)"></button>
+                <button class="close_window_management_button" onclick="close_window(this)"></button>
+            </div>
+        </div>
+        <div class="window_content">
+            <div class="pdf">
+                <div class="pdf_content" style="font-family: 'Times New Roman', Times, serif;">
+                    <div style="text-align: center; font-weight: bold; font-size: xx-large"><u>Realtime CPU-Only Voxel Raytracer</u></div>
+                    <div style="text-align: center; font-size: x-large"><a href="https://github.com/sujit-saravanan/cpu-voxel-raytracer">https://github.com/sujit-saravanan/cpu-voxel-raytracer</a></div>
+                    <br><br>
+
+                    
+                    
+                    <div style="text-align: left; font-weight: bold; font-size: x-large">Description:</div>
+                    <div>
+                        Something I noticed while completing my CMPSC 458 raytracing project, is how excruciatingly long it took to complete rendering even basic scenes. More complicated images with high quality anti-aliasing would take upwards of 5 minutes for a single frame. This motivated me to perform some epxloration on my own time on how to achieve fast, software raytracing on the cpu.
+                        <br><br>
+                        Conventional raytracing is unsuited for the CPU, even with acceleration structures, as it would require performing billions of expensive shape intersection computations every second. Fortunately, in recent times, major development has gone on in the field of voxel raytracing. One algorithm in particular, <a href="https://en.wikipedia.org/wiki/Digital_differential_analyzer_(graphics_algorithm)">Digigal Differential Analyzer</a>, was especially suitable as it required very little computation and could be made branchless.
+                        <br><br>    
+                        One of the main advantages GPUs have over a more conventional processor is their, quite frankly speaking, absurd parallel compute abilities. Even a low end GPU has well over a thousand cuda cores, running at a billion cycles a second. Fortunately, modern processors are also quickly becomming parallel behemoths. Through the power of multithreading and SIMD intrinsics, I was able to achieve reasonable initial results when it comes to performance.
+                        <br><br>
+                        As of right now, I am able to render a few hundred voxels at 1080p, 20fps on my laptop's R5 4600H. I believe that there is room for significant performance improvement through a rewrite of my SIMD code, which is currently less than optimal, and the implementation of a <a href="https://studenttheses.uu.nl/handle/20.500.12932/20460">Brickmap Acceleration Structure</a>. The latter would DRAMATICALLY reduce the number of voxels the CPU has to traverse for every single pixel in the frame. Napkin math indicates the room for a 10-100x performance improvement with the aforementioned optimizations.
+                    </div><br><br><br><br>
+                    <video width="500"  controls>
+                        <source src="assets/projects/voxelfastmath.mp4" type="video/mp4">
+                    </video>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div id="ProjectsWindow" class="window">
         <div class="window_title_bar">
             <div class="window_title_bar_draggable">
@@ -385,40 +429,282 @@
             <div class="file_explorer">
                 <div class="icon_grid"
                     style="flex-direction: row; flex-wrap: wrap; color: black; margin-top: 0px; padding-top: 0.5rem;">
-                    <div class="folder_icon_container" onclick="folder_icon_onclick(this)" ondblclick="folder_icon_ondbclick(this)">
-    <img class="icon_image" src="assets/textures/opti/document.png" alt="test" draggable="false">
+                    <div class="folder_icon_container" onclick="folder_icon_onclick(this)" ondblclick=" open_window ( 'VoxelProject' ) ">
+    <img class="icon_image" src="assets/textures/opti/document.png" alt="Realtime CPU-Only Voxel Raytracer" draggable="false">
     <div class="selection-effect" style="--icon-image: url(&quot;assets/textures/opti/document.png&quot;);"></div>
-    <p class="icon_name" style="color:black">test</p>
+    <p class="icon_name" style="color:black">Realtime CPU-Only Voxel Raytracer</p>
 </div>
 
-                    <div class="folder_icon_container" onclick="folder_icon_onclick(this)" ondblclick="folder_icon_ondbclick(this)">
-    <img class="icon_image" src="assets/textures/opti/document.png" alt="test" draggable="false">
+                </div>
+            </div>
+        </div>
+        <div class="file_footer">
+            <div class="file_footer_elem">
+                6 object(s)
+            </div>
+            <div class="file_footer_elem">
+                6 object(s)
+            </div>
+        </div>
+    </div>
+
+    <div id="PersonalNarrativeWindow" class="window">
+        <div class="window_title_bar">
+            <div class="window_title_bar_draggable">
+                <div class="window_title">
+                    <img src="assets/textures/opti/folder-5.png" class="window_title_image">
+                    <div class="window_title_text"> Projects </div>
+                </div>
+            </div>
+            <div class="window_management_buttons">
+                <button class="minimize_window_management_button" onclick="minimize_window(this)"></button>
+                <button class="maximize_window_management_button" onclick="maximize_window(this)"></button>
+                <button class="close_window_management_button" onclick="close_window(this)"></button>
+            </div>
+        </div>
+        <div class="window_menu_bar">
+            <div><u>F</u>ile</div>
+            <div><u>V</u>iew</div>
+            <div><u>P</u>lay</div>
+            <div><u>N</u>avigate</div>
+            <div><u>F</u>avorites</div>
+            <div><u>H</u>elp</div>
+        </div>
+
+        <div class="window_content" style="height: 100%">
+            <div class="media_content">
+                <video id="PersonalNarrativeVideo">
+                    <source src="assets/videos/PersonalNarrative.webm" type="video/webm">
+                    Your browser does not support HTML video.
+                </video>
+            </div>
+        </div>
+
+        <div class="media_footer">
+            <div class="media_footer_elem">
+                <img id="PersonalNarrative_play_button" src="assets/textures/play.png" style="cursor:pointer;" alt="play button"
+                    onclick="playVideo(document.getElementById('PersonalNarrativeVideo'))">
+                <img id="PersonalNarrative_pause_button" src="assets/textures/pause.png" style="cursor:pointer;" alt="pause button"
+                    onclick="pauseVideo(document.getElementById('PersonalNarrativeVideo'))">
+                <img id="PersonalNarrative_stop_button" src="assets/textures/stop.png" style="cursor:pointer;" alt="stop button"
+                    onclick="stopVideo(document.getElementById('PersonalNarrativeVideo'))">
+            </div>
+            <div class="media_footer_elem_divider"></div>
+            <div class="media_footer_elem">
+                <img id="PersonalNarrative_begin_button" src="assets/textures/end.png" style="cursor:pointer;transform: scaleX(-1);"
+                    alt="begin button" onclick="beginVideo  (document.getElementById('PersonalNarrativeVideo'))">
+                <img id="PersonalNarrative_reverse_button" src="assets/textures/faster.png" style="cursor:pointer;transform: scaleX(-1);"
+                    alt="reverse button" onclick="reverseVideo(document.getElementById('PersonalNarrativeVideo'))">
+                <img id="PersonalNarrative_forward_button" src="assets/textures/faster.png" style="cursor:pointer;" alt="forward button"
+                    onclick="forwardVideo(document.getElementById('PersonalNarrativeVideo'))">
+                <img id="PersonalNarrative_end_button" src="assets/textures/end.png" style="cursor:pointer;" alt="end button"
+                    onclick="endVideo    (document.getElementById('PersonalNarrativeVideo'))">
+            </div>
+        </div>
+
+    </div>
+
+
+    <div id="CMPSC458Window" class="window">
+        <div class="window_title_bar">
+            <div class="window_title_bar_draggable">
+                <div class="window_title">
+                    <img src="assets/textures/opti/document-2.png" class="window_title_image">
+                    <div class="window_title_text"> CMPSC 458: Fundamentals of Computer Graphics</div>
+                </div>
+            </div>
+            <div class="window_management_buttons">
+                <button class="minimize_window_management_button" onclick="minimize_window(this)"></button>
+                <button class="maximize_window_management_button" onclick="maximize_window(this)"></button>
+                <button class="close_window_management_button" onclick="close_window(this)"></button>
+            </div>
+        </div>
+        <div class="window_content">
+            <div class="pdf">
+                <div class="pdf_content" style="font-family: 'Times New Roman', Times, serif;">
+                    <div style="text-align: center; font-weight: bold; font-size: xx-large"><u>CMPSC 458: Fundamentals of Computer Graphics</u></div>
+                    <br><br>
+
+                    
+                    
+                    <div style="text-align: left; font-weight: bold; font-size: x-large">Description:</div>
+                    <div>
+                        This course challenges students to learn the approaches and mathematical techniques that allow a computer to digitally render a scene, as well as advanced methods of image analysis yielding more realistic textures and environments. Topics include transformation, projection, illumination models, shading, hidden lines/surface elimination, viewing, color, raytracing, physics-base graphics, and image based redering, in particular image-based texture synthesis.
+                        <br><br>
+                        I found this course especially interesting as it covered a topic I personally enjoyed learning about, and had a series of challenging projects that relied on C++, with room for extra credit.
+                    </div><br><br><br><br>
+
+
+
+                    <div style="text-align: left; font-weight: bold; font-size: x-large">Projects:</div>
+                    <div style="text-align: left; font-weight: bold; font-size: large"><u>Heightmap Renderer</u></div>
+                    <div>
+                        For this project, we were given a series of basic, 2d single channel heightmaps, and were required to render it out as terrain. For extra credit, I chose to render mine out in a style similar to Minecraft's world.
+                    </div>
+                    <video width="500" controls>
+                        <source src="assets/coursework/CMPSC458/Project1.mp4" type="video/mp4">
+                    </video>
+
+                    <div style="text-align: left; font-weight: bold; font-size: large"><u>Rollercoaster Simulation</u></div>
+                    <div>
+                        For this project, we were required to take in an input file that described the path of a rollercoaster, and generate the required splines to render the ride. We also had to have a cart that traversed its path. For extra credit, I chose to implement a complete physics system and a controllable player with an interactive environment.
+                    </div>
+                    <video width="500" controls>
+                        <source src="assets/coursework/CMPSC458/Project2.mp4" type="video/mp4">
+                    </video>
+
+                    <div style="text-align: left; font-weight: bold; font-size: large"><u>Raytracer</u></div>
+                    <div>
+                        For this project, we were required to implement a basic, CPU raytracer that implemented reflections and refractions. For extra credit, I also introduced support for anti-aliasing.
+                    </div>
+                    <img width="500" src="assets/coursework/CMPSC458/raytracingSaysLGBTQRights.png">
+
+                    <div style="text-align: left; font-weight: bold; font-size: large"><u>Yanshee Robot Physics Simulation</u></div>
+                    <div>
+                        For this project, we were required to perform a series of physics simulations to determine what aspects impacted the stability of the Yanshee robot. For extra credit, I also created a script that would automatically position the joints of the robot in the frame.
+                    </div>
+                    <video width="500" controls>
+                        <source src="assets/coursework/CMPSC458/9klgHkN.mp4" type="video/mp4">
+                    </video>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="CMPSC473Window" class="window">
+        <div class="window_title_bar">
+            <div class="window_title_bar_draggable">
+                <div class="window_title">
+                    <img src="assets/textures/opti/document-2.png" class="window_title_image">
+                    <div class="window_title_text"> CMPSC 473: Operating Systems </div>
+                </div>
+            </div>
+            <div class="window_management_buttons">
+                <button class="minimize_window_management_button" onclick="minimize_window(this)"></button>
+                <button class="maximize_window_management_button" onclick="maximize_window(this)"></button>
+                <button class="close_window_management_button" onclick="close_window(this)"></button>
+            </div>
+        </div>
+        <div class="window_content">
+            <div class="pdf">
+                <div class="pdf_content" style="font-family: 'Times New Roman', Times, serif;">
+                    <div style="text-align: center; font-weight: bold; font-size: xx-large"><u>CMPSC 473: Operating Systems</u></div>
+                    <br><br>
+
+                    
+                    
+                    <div style="text-align: left; font-weight: bold; font-size: x-large">Description:</div>
+                    <div>
+                        This course goes over the role, design, and implementation of various aspects of a conventional Operating System. Not limited to memory management + virtual memory, file systems, and parallel processing.
+                        <br><br>
+                        I was able to obtain a deeper understanding of these topics than what I had previously derived from intuition thanks to this course.
+                    </div><br><br><br><br>
+
+
+
+                    <div style="text-align: left; font-weight: bold; font-size: x-large">Projects:</div>
+                    <div style="text-align: left; font-weight: bold; font-size: large"><u>Thread Scheduler</u></div>
+                    <div>
+                        For this project, we were given a stream of events that would arrive out of order, and were responsible for implementing various resource management and execution strategies to handle them in a performant manner.
+                    </div>
+
+                    <div style="text-align: left; font-weight: bold; font-size: large"><u>Allocators</u></div>
+                    <div>
+                        For this project, we had to implement a series of custom allocation strategies to handle a sequence of allocation requests while minimizing fragmentation.
+                    </div>
+
+                    <div style="text-align: left; font-weight: bold; font-size: large"><u>Memory Manager</u></div>
+                    <div>
+                        For this project, we expanded upon the previous project by creating a virtual memory system that could page in and out of disk.
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="CMPSC483WWindow" class="window">
+        <div class="window_title_bar">
+            <div class="window_title_bar_draggable">
+                <div class="window_title">
+                    <img src="assets/textures/opti/document-2.png" class="window_title_image">
+                    <div class="window_title_text"> CMPSC 483W: Software Design Methods </div>
+                </div>
+            </div>
+            <div class="window_management_buttons">
+                <button class="minimize_window_management_button" onclick="minimize_window(this)"></button>
+                <button class="maximize_window_management_button" onclick="maximize_window(this)"></button>
+                <button class="close_window_management_button" onclick="close_window(this)"></button>
+            </div>
+        </div>
+        <div class="window_content">
+            <div class="pdf">
+                <div class="pdf_content" style="font-family: 'Times New Roman', Times, serif;">
+                    <div style="text-align: center; font-weight: bold; font-size: xx-large"><u>CMPSC 483W: Software Design Methods</u></div>
+                    <br><br>
+
+                    
+                    
+                    <div style="text-align: left; font-weight: bold; font-size: x-large">Description:</div>
+                    <div>
+                        In this course, We were assigned a client and given a software design project to complete in a team of 5. Our group were given the project of creating a dashboard for Penn State to more efficiently manage this course in the future.
+                        <br><br>
+                        This was arguably the most important course I took in college, as it gave me some initial experience in a more professional, software development environment.
+                    </div><br><br><br><br>
+
+
+
+                    <div style="text-align: left; font-weight: bold; font-size: x-large">Project Description:</div>
+                    <div>
+                        We split this project up into two sections, the frontend and the backend. I mostly worked on the backend while the rest of my teammates aimed to make the most polished frontend possible, as that was what our client would see at the end. Rather than choosing a conventional, javascript based web framework, I ended up creating the backend in C++. I used a combination of cpp-httplib in order to handle requests, and simdjson for fast parsing of the request body. <br><br> The server was ultimately hosted in a Penn State server running RHEL, locked behind a staff vpn.
+                    </div>
+                    <img src="assets/coursework/CMPSC483W/learning_factory.png">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="CourseworkWindow" class="window">
+        <div class="window_title_bar">
+            <div class="window_title_bar_draggable">
+                <div class="window_title">
+                    <img src="assets/textures/opti/folder-5.png" class="window_title_image">
+                    <div class="window_title_text"> Coursework </div>
+                </div>
+            </div>
+            <div class="window_management_buttons">
+                <button class="minimize_window_management_button" onclick="minimize_window(this)"></button>
+                <button class="maximize_window_management_button" onclick="maximize_window(this)"></button>
+                <button class="close_window_management_button" onclick="close_window(this)"></button>
+            </div>
+        </div>
+        <div class="window_menu_bar">
+            <div><u>F</u>ile</div>
+            <div><u>E</u>dit</div>
+            <div><u>V</u>iew</div>
+            <div><u>H</u>elp</div>
+        </div>
+        <div class="window_content" style="height: 100%">
+            <div class="file_explorer">
+                <div class="icon_grid"
+                    style="flex-direction: row; flex-wrap: wrap; color: black; margin-top: 0px; padding-top: 0.5rem;">
+                    <div class="folder_icon_container" onclick="folder_icon_onclick(this)" ondblclick=" open_window ( 'CMPSC458' ) ">
+    <img class="icon_image" src="assets/textures/opti/document.png" alt="CMPSC <br> 458: Fundamentals of Computer Graphics" draggable="false">
     <div class="selection-effect" style="--icon-image: url(&quot;assets/textures/opti/document.png&quot;);"></div>
-    <p class="icon_name" style="color:black">test</p>
+    <p class="icon_name" style="color:black">CMPSC <br> 458: Fundamentals of Computer Graphics</p>
 </div>
 
-                    <div class="folder_icon_container" onclick="folder_icon_onclick(this)" ondblclick="folder_icon_ondbclick(this)">
-    <img class="icon_image" src="assets/textures/opti/document.png" alt="test" draggable="false">
+                    <div class="folder_icon_container" onclick="folder_icon_onclick(this)" ondblclick=" open_window ( 'CMPSC473' ) ">
+    <img class="icon_image" src="assets/textures/opti/document.png" alt="CMPSC 473: Operating Systems" draggable="false">
     <div class="selection-effect" style="--icon-image: url(&quot;assets/textures/opti/document.png&quot;);"></div>
-    <p class="icon_name" style="color:black">test</p>
+    <p class="icon_name" style="color:black">CMPSC 473: Operating Systems</p>
 </div>
 
-                    <div class="folder_icon_container" onclick="folder_icon_onclick(this)" ondblclick="folder_icon_ondbclick(this)">
-    <img class="icon_image" src="assets/textures/opti/document.png" alt="test" draggable="false">
+                    <div class="folder_icon_container" onclick="folder_icon_onclick(this)" ondblclick=" open_window ( 'CMPSC483W' ) ">
+    <img class="icon_image" src="assets/textures/opti/document.png" alt="CMPSC 483W: Software Design Methods" draggable="false">
     <div class="selection-effect" style="--icon-image: url(&quot;assets/textures/opti/document.png&quot;);"></div>
-    <p class="icon_name" style="color:black">test</p>
-</div>
-
-                    <div class="folder_icon_container" onclick="folder_icon_onclick(this)" ondblclick="folder_icon_ondbclick(this)">
-    <img class="icon_image" src="assets/textures/opti/document.png" alt="test" draggable="false">
-    <div class="selection-effect" style="--icon-image: url(&quot;assets/textures/opti/document.png&quot;);"></div>
-    <p class="icon_name" style="color:black">test</p>
-</div>
-
-                    <div class="folder_icon_container" onclick="folder_icon_onclick(this)" ondblclick="folder_icon_ondbclick(this)">
-    <img class="icon_image" src="assets/textures/opti/document.png" alt="test" draggable="false">
-    <div class="selection-effect" style="--icon-image: url(&quot;assets/textures/opti/document.png&quot;);"></div>
-    <p class="icon_name" style="color:black">test</p>
+    <p class="icon_name" style="color:black">CMPSC 483W: Software Design Methods</p>
 </div>
 
                 </div>
@@ -602,35 +888,41 @@
     </div>
 
     <div class="icon_grid">
-        <div class="icon_container" onclick="icon_onclick(this)" ondblclick="icon_ondbclick(this)">
+        <div class="icon_container" onclick="icon_onclick(this)" ondblclick=" open_window ( 'Resume' ) ">
     <img class="icon_image" src="assets/textures/opti/document.png" alt="Resume" draggable="false">
     <div class="selection-effect" style="--icon-image: url(&quot;assets/textures/opti/document.png&quot;);"></div>
     <p class="icon_name">Resume</p>
 </div>
 
-        <div class="icon_container" onclick="icon_onclick(this)" ondblclick="icon_ondbclick(this)">
+        <div class="icon_container" onclick="icon_onclick(this)" ondblclick=" open_window ( 'Projects' ) ">
     <img class="icon_image" src="assets/textures/opti/folder_with_content.png" alt="Projects" draggable="false">
     <div class="selection-effect" style="--icon-image: url(&quot;assets/textures/opti/folder_with_content.png&quot;);"></div>
     <p class="icon_name">Projects</p>
 </div>
 
-        <div class="icon_container" onclick="icon_onclick(this)" ondblclick="icon_ondbclick(this)">
+        <div class="icon_container" onclick="icon_onclick(this)" ondblclick=" open_window ( 'Coursework' ) ">
+    <img class="icon_image" src="assets/textures/opti/folder_with_content.png" alt="Coursework" draggable="false">
+    <div class="selection-effect" style="--icon-image: url(&quot;assets/textures/opti/folder_with_content.png&quot;);"></div>
+    <p class="icon_name">Coursework</p>
+</div>
+
+        <div class="icon_container" onclick="icon_onclick(this)" ondblclick=" open_email (  ) ">
     <img class="icon_image" src="assets/textures/opti/mailbox_world.png" alt="Contact Me" draggable="false">
     <div class="selection-effect" style="--icon-image: url(&quot;assets/textures/opti/mailbox_world.png&quot;);"></div>
     <p class="icon_name">Contact Me</p>
 </div>
 
-        <div class="icon_container" onclick="icon_onclick(this)" ondblclick="icon_ondbclick(this)">
-    <img class="icon_image" src="assets/textures/opti/help_book.png" alt="Help" draggable="false">
-    <div class="selection-effect" style="--icon-image: url(&quot;assets/textures/opti/help_book.png&quot;);"></div>
-    <p class="icon_name">Help</p>
+        <div class="icon_container" onclick="icon_onclick(this)" ondblclick=" open_window ( 'PersonalNarrative' ) ">
+    <img class="icon_image" src="assets/textures/opti/media.png" alt="Personal Narrative" draggable="false">
+    <div class="selection-effect" style="--icon-image: url(&quot;assets/textures/opti/media.png&quot;);"></div>
+    <p class="icon_name">Personal Narrative</p>
 </div>
 
     </div>
 
     <div id="taskbar">
         <div class="taskbar-button start" onmousedown="this.classList.add('clicked')"
-            onmouseleave="this.classList.remove('clicked')"" onmouseup=" this.classList.remove('clicked')">
+            onmouseleave="this.classList.remove('clicked')" onmouseup=" this.classList.remove('clicked')">
             <div class="taskbar-button-content">
                 <img class="icon_image" src="assets/textures/opti/windows-5.png" alt="$$icon_name" draggable="false">
                 Start
