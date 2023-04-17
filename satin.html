@@ -82,7 +82,7 @@ def subsection_two_simple(left, right){
             <div class="window_management_buttons">
                 <button class="minimize_window_management_button" onclick="minimize_window(this)"></button>
                 <button class="maximize_window_management_button" onclick="maximize_window(this)"></button>
-                <button class="close_window_management_button" onclick="close_window(this)"></button>
+                <button class="close_window_management_button" onclick="close_window('Resume')"></button>
             </div>
         </div>
         <div class="window_content">
@@ -202,7 +202,7 @@ def subsection_two_simple(left, right){
             <div class="window_management_buttons">
                 <button class="minimize_window_management_button" onclick="minimize_window(this)"></button>
                 <button class="maximize_window_management_button" onclick="maximize_window(this)"></button>
-                <button class="close_window_management_button" onclick="close_window(this)"></button>
+                <button class="close_window_management_button" onclick="close_window('Help')"></button>
             </div>
         </div>
         <div class="window_content">
@@ -324,7 +324,7 @@ def subsection_two_simple(left, right){
             <div class="window_management_buttons">
                 <button class="minimize_window_management_button" onclick="minimize_window(this)"></button>
                 <button class="maximize_window_management_button" onclick="maximize_window(this)"></button>
-                <button class="close_window_management_button" onclick="close_window(this)"></button>
+                <button class="close_window_management_button" onclick="close_window('VoxelProject')"></button>
             </div>
         </div>
         <div class="window_content">
@@ -368,7 +368,7 @@ def subsection_two_simple(left, right){
             <div class="window_management_buttons">
                 <button class="minimize_window_management_button" onclick="minimize_window(this)"></button>
                 <button class="maximize_window_management_button" onclick="maximize_window(this)"></button>
-                <button class="close_window_management_button" onclick="close_window(this)"></button>
+                <button class="close_window_management_button" onclick="close_window('Projects')"></button>
             </div>
         </div>
         <div class="window_menu_bar">
@@ -407,7 +407,7 @@ def subsection_two_simple(left, right){
             <div class="window_management_buttons">
                 <button class="minimize_window_management_button" onclick="minimize_window(this)"></button>
                 <button class="maximize_window_management_button" onclick="maximize_window(this)"></button>
-                <button class="close_window_management_button" onclick="close_window(this)"></button>
+                <button class="close_window_management_button" onclick="close_window('PersonalNarrative')"></button>
             </div>
         </div>
         <div class="window_menu_bar">
@@ -422,7 +422,7 @@ def subsection_two_simple(left, right){
         <div class="window_content" style="height: 100%">
             <div class="media_content">
                 <video id="PersonalNarrativeVideo">
-                    <source src="assets/videos/PersonalNarrative.webm" type="video/webm">
+                    <source src="assets/videos/Narrative.mp4" type="video/webm">
                     Your browser does not support HTML video.
                 </video>
             </div>
@@ -464,7 +464,7 @@ def subsection_two_simple(left, right){
             <div class="window_management_buttons">
                 <button class="minimize_window_management_button" onclick="minimize_window(this)"></button>
                 <button class="maximize_window_management_button" onclick="maximize_window(this)"></button>
-                <button class="close_window_management_button" onclick="close_window(this)"></button>
+                <button class="close_window_management_button" onclick="close_window('CMPSC458')"></button>
             </div>
         </div>
         <div class="window_content">
@@ -531,7 +531,7 @@ def subsection_two_simple(left, right){
             <div class="window_management_buttons">
                 <button class="minimize_window_management_button" onclick="minimize_window(this)"></button>
                 <button class="maximize_window_management_button" onclick="maximize_window(this)"></button>
-                <button class="close_window_management_button" onclick="close_window(this)"></button>
+                <button class="close_window_management_button" onclick="close_window('CMPSC473')"></button>
             </div>
         </div>
         <div class="window_content">
@@ -583,7 +583,7 @@ def subsection_two_simple(left, right){
             <div class="window_management_buttons">
                 <button class="minimize_window_management_button" onclick="minimize_window(this)"></button>
                 <button class="maximize_window_management_button" onclick="maximize_window(this)"></button>
-                <button class="close_window_management_button" onclick="close_window(this)"></button>
+                <button class="close_window_management_button" onclick="close_window('CMPSC483W')"></button>
             </div>
         </div>
         <div class="window_content">
@@ -624,7 +624,7 @@ def subsection_two_simple(left, right){
             <div class="window_management_buttons">
                 <button class="minimize_window_management_button" onclick="minimize_window(this)"></button>
                 <button class="maximize_window_management_button" onclick="maximize_window(this)"></button>
-                <button class="close_window_management_button" onclick="close_window(this)"></button>
+                <button class="close_window_management_button" onclick="close_window('Coursework')"></button>
             </div>
         </div>
         <div class="window_menu_bar">
@@ -637,12 +637,9 @@ def subsection_two_simple(left, right){
             <div class="file_explorer">
                 <div class="icon_grid"
                     style="flex-direction: row; flex-wrap: wrap; color: black; margin-top: 0px; padding-top: 0.5rem;">
-                    folder_icon({open_window}, {'CMPSC458'}, {CMPSC <br> 458: Fundamentals of Computer Graphics},
-                    {assets/textures/opti/document.png})
-                    folder_icon({open_window}, {'CMPSC473'}, {CMPSC 473: Operating Systems},
-                    {assets/textures/opti/document.png})
-                    folder_icon({open_window}, {'CMPSC483W'}, {CMPSC 483W: Software Design Methods},
-                    {assets/textures/opti/document.png})
+                    folder_icon({open_window}, {'CMPSC458'}, {CMPSC <br> 458: Fundamentals of Computer Graphics}, {assets/textures/opti/document.png})
+                    folder_icon({open_window}, {'CMPSC473'}, {CMPSC 473: Operating Systems},{assets/textures/opti/document.png})
+                    folder_icon({open_window}, {'CMPSC483W'}, {CMPSC 483W: Software Design Methods}, {assets/textures/opti/document.png})
                 </div>
             </div>
         </div>
@@ -667,7 +664,7 @@ def subsection_two_simple(left, right){
             <div class="window_management_buttons">
                 <button class="minimize_window_management_button" onclick="minimize_window(this)"></button>
                 <button class="maximize_window_management_button" onclick="maximize_window(this)"></button>
-                <button class="close_window_management_button" onclick="close_window(this)"></button>
+                <button class="close_window_management_button" onclick="close_window('Contact')"></button>
             </div>
         </div>
         <div class="window_content">

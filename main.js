@@ -454,31 +454,10 @@ function makeDraggable(elmnt) {
     }
 }
 
-function close_window(button){
-    const window = button.parentNode.parentNode.parentNode;
-    window.style.display = "none";
-    switch (window.id) {
-        case "ResumeWindow":
-            window_open_map.set("ResumeWindow", false)
-            taskbar.removeChild(document.getElementById("ResumeButton"));
-            break;
-        case "CourseworkWindow":
-            window_open_map.set("CourseworkWindow", false)
-            taskbar.removeChild(document.getElementById("CourseworkButton"));
-            break;
-        case "ProjectsWindow":
-            window_open_map.set("ProjectsWindow", false)
-            taskbar.removeChild(document.getElementById("ProjectsButton"));
-            break;
-        case "ContactWindow":
-            taskbar.removeChild(document.getElementById("ContactButton"));
-            break;
-        case "HelpWindow":
-            window_open_map.set("HelpWindow", false)
-            taskbar.removeChild(document.getElementById("HelpButton"));
-            break;
-        default:
-    }
+function close_window(prefix){
+    document.getElementById(prefix+"Window").style.display = "none";
+    window_open_map.set(prefix+"Window", false)
+    taskbar.removeChild(document.getElementById(prefix+"Button"));
 }
 function minimize_window(button){
     const window = button.parentNode.parentNode.parentNode;

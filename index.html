@@ -38,7 +38,7 @@
             <div class="window_management_buttons">
                 <button class="minimize_window_management_button" onclick="minimize_window(this)"></button>
                 <button class="maximize_window_management_button" onclick="maximize_window(this)"></button>
-                <button class="close_window_management_button" onclick="close_window(this)"></button>
+                <button class="close_window_management_button" onclick="close_window('Resume')"></button>
             </div>
         </div>
         <div class="window_content">
@@ -205,7 +205,7 @@
             <div class="window_management_buttons">
                 <button class="minimize_window_management_button" onclick="minimize_window(this)"></button>
                 <button class="maximize_window_management_button" onclick="maximize_window(this)"></button>
-                <button class="close_window_management_button" onclick="close_window(this)"></button>
+                <button class="close_window_management_button" onclick="close_window('Help')"></button>
             </div>
         </div>
         <div class="window_content">
@@ -374,7 +374,7 @@
             <div class="window_management_buttons">
                 <button class="minimize_window_management_button" onclick="minimize_window(this)"></button>
                 <button class="maximize_window_management_button" onclick="maximize_window(this)"></button>
-                <button class="close_window_management_button" onclick="close_window(this)"></button>
+                <button class="close_window_management_button" onclick="close_window('VoxelProject')"></button>
             </div>
         </div>
         <div class="window_content">
@@ -388,9 +388,11 @@
                     
                     <div style="text-align: left; font-weight: bold; font-size: x-large">Description:</div>
                     <div>
-                        Something I noticed while completing my CMPSC 458 raytracing project, is how excruciatingly long it took to complete rendering even basic scenes. More complicated images with high quality anti-aliasing would take upwards of 5 minutes for a single frame. This motivated me to perform some epxloration on my own time on how to achieve fast, software raytracing on the cpu.
+                        Something I noticed while completing my CMPSC 458 raytracing project, is how excruciatingly long it took to complete rendering even basic scenes. More complicated images with high quality anti-aliasing would take upwards of 5 minutes for a single frame. This motivated me to perform some exploration on my own time on how to achieve fast, software raytracing on the CPU.
                         <br><br>
-                        Conventional raytracing is unsuited for the CPU, even with acceleration structures, as it would require performing billions of expensive shape intersection computations every second. Fortunately, in recent times, major development has gone on in the field of voxel raytracing. One algorithm in particular, <a href="https://en.wikipedia.org/wiki/Digital_differential_analyzer_(graphics_algorithm)">Digigal Differential Analyzer</a>, was especially suitable as it required very little computation and could be made branchless.
+                        Conventional raytracing is unsuited for the CPU, even with acceleration structures, as it would require performing billions of expensive shape intersection computations every second. Fortunately, in recent times, major development has gone on in the field of voxel raytracing.
+                        <br><br>
+                        Voxels, compared to their polygonal cousins, are extremely easy to test intersections against, as they're consistently sized and snapped to the 3d axis. There are many algorithms designed to perform such tests, one algorithm in particular, <a href="https://en.wikipedia.org/wiki/Digital_differential_analyzer_(graphics_algorithm)">Digigal Differential Analyzer</a>, was especially suitable as it required very little computation and could be made branchless.
                         <br><br>    
                         One of the main advantages GPUs have over a more conventional processor is their, quite frankly speaking, absurd parallel compute abilities. Even a low end GPU has well over a thousand cuda cores, running at a billion cycles a second. Fortunately, modern processors are also quickly becomming parallel behemoths. Through the power of multithreading and SIMD intrinsics, I was able to achieve reasonable initial results when it comes to performance.
                         <br><br>
@@ -399,7 +401,7 @@
                     <video width="500"  controls>
                         <source src="assets/projects/voxelfastmath.mp4" type="video/mp4">
                     </video>
-                    
+
                 </div>
             </div>
         </div>
@@ -416,7 +418,7 @@
             <div class="window_management_buttons">
                 <button class="minimize_window_management_button" onclick="minimize_window(this)"></button>
                 <button class="maximize_window_management_button" onclick="maximize_window(this)"></button>
-                <button class="close_window_management_button" onclick="close_window(this)"></button>
+                <button class="close_window_management_button" onclick="close_window('Projects')"></button>
             </div>
         </div>
         <div class="window_menu_bar">
@@ -459,7 +461,7 @@
             <div class="window_management_buttons">
                 <button class="minimize_window_management_button" onclick="minimize_window(this)"></button>
                 <button class="maximize_window_management_button" onclick="maximize_window(this)"></button>
-                <button class="close_window_management_button" onclick="close_window(this)"></button>
+                <button class="close_window_management_button" onclick="close_window('PersonalNarrative')"></button>
             </div>
         </div>
         <div class="window_menu_bar">
@@ -474,7 +476,7 @@
         <div class="window_content" style="height: 100%">
             <div class="media_content">
                 <video id="PersonalNarrativeVideo">
-                    <source src="assets/videos/PersonalNarrative.webm" type="video/webm">
+                    <source src="assets/videos/Narrative.mp4" type="video/webm">
                     Your browser does not support HTML video.
                 </video>
             </div>
@@ -516,7 +518,7 @@
             <div class="window_management_buttons">
                 <button class="minimize_window_management_button" onclick="minimize_window(this)"></button>
                 <button class="maximize_window_management_button" onclick="maximize_window(this)"></button>
-                <button class="close_window_management_button" onclick="close_window(this)"></button>
+                <button class="close_window_management_button" onclick="close_window('CMPSC458')"></button>
             </div>
         </div>
         <div class="window_content">
@@ -583,7 +585,7 @@
             <div class="window_management_buttons">
                 <button class="minimize_window_management_button" onclick="minimize_window(this)"></button>
                 <button class="maximize_window_management_button" onclick="maximize_window(this)"></button>
-                <button class="close_window_management_button" onclick="close_window(this)"></button>
+                <button class="close_window_management_button" onclick="close_window('CMPSC473')"></button>
             </div>
         </div>
         <div class="window_content">
@@ -635,7 +637,7 @@
             <div class="window_management_buttons">
                 <button class="minimize_window_management_button" onclick="minimize_window(this)"></button>
                 <button class="maximize_window_management_button" onclick="maximize_window(this)"></button>
-                <button class="close_window_management_button" onclick="close_window(this)"></button>
+                <button class="close_window_management_button" onclick="close_window('CMPSC483W')"></button>
             </div>
         </div>
         <div class="window_content">
@@ -676,7 +678,7 @@
             <div class="window_management_buttons">
                 <button class="minimize_window_management_button" onclick="minimize_window(this)"></button>
                 <button class="maximize_window_management_button" onclick="maximize_window(this)"></button>
-                <button class="close_window_management_button" onclick="close_window(this)"></button>
+                <button class="close_window_management_button" onclick="close_window('Coursework')"></button>
             </div>
         </div>
         <div class="window_menu_bar">
@@ -731,7 +733,7 @@
             <div class="window_management_buttons">
                 <button class="minimize_window_management_button" onclick="minimize_window(this)"></button>
                 <button class="maximize_window_management_button" onclick="maximize_window(this)"></button>
-                <button class="close_window_management_button" onclick="close_window(this)"></button>
+                <button class="close_window_management_button" onclick="close_window('Contact')"></button>
             </div>
         </div>
         <div class="window_content">
