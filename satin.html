@@ -1,58 +1,14 @@
-def icon(function, window_name, icon_name, texture_path){
-<div class="icon_container" onclick="icon_onclick(this)" ondblclick=" $$function ( $$window_name ) ">
-    <img class="icon_image" src="$$texture_path" alt="$$icon_name" draggable="false">
-    <div class="selection-effect" style="--icon-image: url(&quot;$$texture_path&quot;);"></div>
-    <p class="icon_name">$$icon_name</p>
-</div>
-}
 
-def folder_icon(function, window_name, icon_name, texture_path){
-<div class="folder_icon_container" onclick="folder_icon_onclick(this)" ondblclick=" $$function ( $$window_name ) ">
-    <img class="icon_image" src="$$texture_path" alt="$$icon_name" draggable="false">
-    <div class="selection-effect" style="--icon-image: url(&quot;$$texture_path&quot;);"></div>
-    <p class="icon_name" style="color:black">$$icon_name</p>
-</div>
-}
 
-def subsection_two(left, right, content){
-<div>
-    <div class="subsection2">
-        <div class="subsection_elem_left">$$left</div>
-        <div class="subsection_elem_right">$$right</div>
-    </div>
-    $$content
-</div>
-}
 
-def subsection_three(left, center, right, content){
-<div>
-    <div class="subsection3">
-        <div class="subsection_elem_left">$$left</div>
-        <div class="subsection_elem_center">$$center</div>
-        <div class="subsection_elem_right">$$right</div>
-    </div>
-    $$content
-</div>
-}
 
-def subsection_three_simple(left, center, right){
-<div>
-    <div class="subsection3">
-        <div class="subsection_elem_left">$$left</div>
-        <div class="subsection_elem_center">$$center</div>
-        <div class="subsection_elem_right">$$right</div>
-    </div>
-</div>
-}
 
-def subsection_two_simple(left, right){
-<div>
-    <div class="subsection2">
-        <div class="subsection_elem_left">$$left</div>
-        <div class="subsection_elem_right">$$right</div>
-    </div>
-</div>
-}
+
+
+
+
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -108,9 +64,21 @@ def subsection_two_simple(left, right){
                     </div>
                     <div class="section">
                         <div class="section_title">Education</div>
-                        subsection_three_simple({<b>University Park</b>}, {<b>Pennsylvania State University</b>},
-                        {<b>Fall 2020 - Fall 2023</b>})
-                        subsection_two_simple({<li>B.S. in Computer Science, Fall 2023.</li>}, {Current GPA: 3.28})
+                        <div>
+    <div class="subsection3">
+        <div class="subsection_elem_left"><b>University Park</b></div>
+        <div class="subsection_elem_center"><b>Pennsylvania State University</b></div>
+        <div class="subsection_elem_right"><b>Fall 2020 - Fall 2023</b></div>
+    </div>
+</div>
+
+                        <div>
+    <div class="subsection2">
+        <div class="subsection_elem_left"><li>B.S. in Computer Science, Fall 2023.</li></div>
+        <div class="subsection_elem_right">Current GPA: 3.28</div>
+    </div>
+</div>
+
                     </div>
                     <div class="section">
                         <div class="section_title">Technical Abilities</div>
@@ -123,53 +91,86 @@ def subsection_two_simple(left, right){
                     <div clas="section">
                         <div class="section_title">Projects</div>
                         <div style="display: flex; flex-direction: column; gap: 1rem;">
-                            subsection_two({<b>Data-Orienteed OpenGL Text Editor (2023):</b>}, {<b>C; C++; OpenGL;
-                                JetBrains IDE</b>},
-                            {<li>
+                            <div>
+    <div class="subsection2">
+        <div class="subsection_elem_left"><b>Data-Orienteed OpenGL Text Editor (2023):</b></div>
+        <div class="subsection_elem_right"><b>C; C++; OpenGL;
+                                JetBrains IDE</b></div>
+    </div>
+    <li>
                                 An extremely performant text editor that makes use of modern OpenGL and Data Oriented
                                 Design philosophies. Features a vector of gap buffers in order to reduce the impact of
                                 having to insert characters into a string.
-                            </li>}
-                            )
+                            </li>
+</div>
 
-                            subsection_two({<b>Pipelined MIPS Processor (2022):</b>}, {<b>Verilog; MIPS Assembly;
-                                Vivado</b>},
-                            {<li>
+
+                            <div>
+    <div class="subsection2">
+        <div class="subsection_elem_left"><b>Pipelined MIPS Processor (2022):</b></div>
+        <div class="subsection_elem_right"><b>Verilog; MIPS Assembly;
+                                Vivado</b></div>
+    </div>
+    <li>
                                 A pipelined microcontroller designed in Verilog, that is capable of running MIPS
                                 assembly. It contains built in memory for both instructions as well as data, and
                                 supports forwarding between stages in order to avoid stalls.
-                            </li>}
-                            )
+                            </li>
+</div>
 
-                            subsection_two({<b>Stitch (2022):</b>}, {<b>C; C++; CMake; JetBrains IDE</b>},
-                            {<li>
+
+                            <div>
+    <div class="subsection2">
+        <div class="subsection_elem_left"><b>Stitch (2022):</b></div>
+        <div class="subsection_elem_right"><b>C; C++; CMake; JetBrains IDE</b></div>
+    </div>
+    <li>
                                 A performant, opinionated build system and project initialization/management tool that
                                 automatically generates CMakeLists.txt files based on the include tree of the project's
                                 module headers.
-                            </li>}
-                            )
+                            </li>
+</div>
 
-                            subsection_two({<b>Fast List (2022):</b>}, {<b>C; C++; JetBrains IDE</b>},
-                            {<li>
+
+                            <div>
+    <div class="subsection2">
+        <div class="subsection_elem_left"><b>Fast List (2022):</b></div>
+        <div class="subsection_elem_right"><b>C; C++; JetBrains IDE</b></div>
+    </div>
+    <li>
                                 A linked list implementation designed around minimizing cache misses and amortizing
                                 memory overhead. Benchmarks indicate a 3-5x performance improvement over std::list for
                                 standard operations.
-                            </li>}
-                            )
+                            </li>
+</div>
+
                         </div>
                     </div>
                     <div class="section">
                         <div class="section_title">Employment</div>
                         <div style="display: flex; flex-direction: column; gap: 1rem;">
-                            subsection_three({<b>Employee</b>}, {<b>Penn State CMPEN 497 Grader</b>}, {<b>Spring 2023 -
-                                Present</b>}, {
+                            <div>
+    <div class="subsection3">
+        <div class="subsection_elem_left"><b>Employee</b></div>
+        <div class="subsection_elem_center"><b>Penn State CMPEN 497 Grader</b></div>
+        <div class="subsection_elem_right"><b>Spring 2023 -
+                                Present</b></div>
+    </div>
+    
                             <li>Graded student assignments and updated scores to the grading portal in a
                                 timely manner.</li>
                             <li>Made sure grading was transparent and students were understanding of the grades
                                 they received.</li>
-                            })
-                            subsection_three({<b>Volunteer</b>}, {<b>Community Empowerment Northern Virginia</b>},
-                            {<b>Summer 2019</b>}, {
+                            
+</div>
+
+                            <div>
+    <div class="subsection3">
+        <div class="subsection_elem_left"><b>Volunteer</b></div>
+        <div class="subsection_elem_center"><b>Community Empowerment Northern Virginia</b></div>
+        <div class="subsection_elem_right"><b>Summer 2019</b></div>
+    </div>
+    
                             <li>Sole data entry specialist in charge of maintaining CENV's consumer information
                                 database.</li>
                             <li>Scanned
@@ -179,7 +180,9 @@ def subsection_two_simple(left, right){
                                 efficient way for consumer information to be directly inputted into the company
                                 database.</li>
                             <li>Garnered 67.5 total volunteer hours throughout my experience with CENV.</li>
-                            })
+                            
+</div>
+
                         </div>
                     </div>
                     <div class="section">
@@ -228,9 +231,21 @@ def subsection_two_simple(left, right){
                     </div>
                     <div class="section">
                         <div class="section_title">Education</div>
-                        subsection_three_simple({<b>University Park</b>}, {<b>Pennsylvania State University</b>},
-                        {<b>Fall 2020 - Fall 2023</b>})
-                        subsection_two_simple({<li>B.S. in Computer Science, Fall 2023.</li>}, {Current GPA: 3.28})
+                        <div>
+    <div class="subsection3">
+        <div class="subsection_elem_left"><b>University Park</b></div>
+        <div class="subsection_elem_center"><b>Pennsylvania State University</b></div>
+        <div class="subsection_elem_right"><b>Fall 2020 - Fall 2023</b></div>
+    </div>
+</div>
+
+                        <div>
+    <div class="subsection2">
+        <div class="subsection_elem_left"><li>B.S. in Computer Science, Fall 2023.</li></div>
+        <div class="subsection_elem_right">Current GPA: 3.28</div>
+    </div>
+</div>
+
                     </div>
                     <div class="section">
                         <div class="section_title">Technical Abilities</div>
@@ -243,53 +258,86 @@ def subsection_two_simple(left, right){
                     <div clas="section">
                         <div class="section_title">Projects</div>
                         <div style="display: flex; flex-direction: column; gap: 1rem;">
-                            subsection_two({<b>Data-Orienteed OpenGL Text Editor (2023):</b>}, {<b>C; C++; OpenGL;
-                                JetBrains IDE</b>},
-                            {<li>
+                            <div>
+    <div class="subsection2">
+        <div class="subsection_elem_left"><b>Data-Orienteed OpenGL Text Editor (2023):</b></div>
+        <div class="subsection_elem_right"><b>C; C++; OpenGL;
+                                JetBrains IDE</b></div>
+    </div>
+    <li>
                                 An extremely performant text editor that makes use of modern OpenGL and Data Oriented
                                 Design philosophies. Features a vector of gap buffers in order to reduce the impact of
                                 having to insert characters into a string.
-                            </li>}
-                            )
+                            </li>
+</div>
 
-                            subsection_two({<b>Pipelined MIPS Processor (2022):</b>}, {<b>Verilog; MIPS Assembly;
-                                Vivado</b>},
-                            {<li>
+
+                            <div>
+    <div class="subsection2">
+        <div class="subsection_elem_left"><b>Pipelined MIPS Processor (2022):</b></div>
+        <div class="subsection_elem_right"><b>Verilog; MIPS Assembly;
+                                Vivado</b></div>
+    </div>
+    <li>
                                 A pipelined microcontroller designed in Verilog, that is capable of running MIPS
                                 assembly. It contains built in memory for both instructions as well as data, and
                                 supports forwarding between stages in order to avoid stalls.
-                            </li>}
-                            )
+                            </li>
+</div>
 
-                            subsection_two({<b>Stitch (2022):</b>}, {<b>C; C++; CMake; JetBrains IDE</b>},
-                            {<li>
+
+                            <div>
+    <div class="subsection2">
+        <div class="subsection_elem_left"><b>Stitch (2022):</b></div>
+        <div class="subsection_elem_right"><b>C; C++; CMake; JetBrains IDE</b></div>
+    </div>
+    <li>
                                 A performant, opinionated build system and project initialization/management tool that
                                 automatically generates CMakeLists.txt files based on the include tree of the project's
                                 module headers.
-                            </li>}
-                            )
+                            </li>
+</div>
 
-                            subsection_two({<b>Fast List (2022):</b>}, {<b>C; C++; JetBrains IDE</b>},
-                            {<li>
+
+                            <div>
+    <div class="subsection2">
+        <div class="subsection_elem_left"><b>Fast List (2022):</b></div>
+        <div class="subsection_elem_right"><b>C; C++; JetBrains IDE</b></div>
+    </div>
+    <li>
                                 A linked list implementation designed around minimizing cache misses and amortizing
                                 memory overhead. Benchmarks indicate a 3-5x performance improvement over std::list for
                                 standard operations.
-                            </li>}
-                            )
+                            </li>
+</div>
+
                         </div>
                     </div>
                     <div class="section">
                         <div class="section_title">Employment</div>
                         <div style="display: flex; flex-direction: column; gap: 1rem;">
-                            subsection_three({<b>Employee</b>}, {<b>Penn State CMPEN 497 Grader</b>}, {<b>Spring 2023 -
-                                Present</b>}, {
+                            <div>
+    <div class="subsection3">
+        <div class="subsection_elem_left"><b>Employee</b></div>
+        <div class="subsection_elem_center"><b>Penn State CMPEN 497 Grader</b></div>
+        <div class="subsection_elem_right"><b>Spring 2023 -
+                                Present</b></div>
+    </div>
+    
                             <li>Graded student assignments and updated scores to the grading portal in a
                                 timely manner.</li>
                             <li>Made sure grading was transparent and students were understanding of the grades
                                 they received.</li>
-                            })
-                            subsection_three({<b>Volunteer</b>}, {<b>Community Empowerment Northern Virginia</b>},
-                            {<b>Summer 2019</b>}, {
+                            
+</div>
+
+                            <div>
+    <div class="subsection3">
+        <div class="subsection_elem_left"><b>Volunteer</b></div>
+        <div class="subsection_elem_center"><b>Community Empowerment Northern Virginia</b></div>
+        <div class="subsection_elem_right"><b>Summer 2019</b></div>
+    </div>
+    
                             <li>Sole data entry specialist in charge of maintaining CENV's consumer information
                                 database.</li>
                             <li>Scanned
@@ -299,7 +347,9 @@ def subsection_two_simple(left, right){
                                 efficient way for consumer information to be directly inputted into the company
                                 database.</li>
                             <li>Garnered 67.5 total volunteer hours throughout my experience with CENV.</li>
-                            })
+                            
+</div>
+
                         </div>
                     </div>
                     <div class="section">
@@ -381,8 +431,12 @@ def subsection_two_simple(left, right){
             <div class="file_explorer">
                 <div class="icon_grid"
                     style="flex-direction: row; flex-wrap: wrap; color: black; margin-top: 0px; padding-top: 0.5rem;">
-                    folder_icon({open_window}, {'VoxelProject'}, {Realtime CPU-Only Voxel Raytracer},
-                    {assets/textures/opti/document.png})
+                    <div class="folder_icon_container" onclick="folder_icon_onclick(this)" ondblclick=" open_window ( 'VoxelProject' ) ">
+    <img class="icon_image" src="assets/textures/opti/document.png" alt="Realtime CPU-Only Voxel Raytracer" draggable="false">
+    <div class="selection-effect" style="--icon-image: url(&quot;assets/textures/opti/document.png&quot;);"></div>
+    <p class="icon_name" style="color:black">Realtime CPU-Only Voxel Raytracer</p>
+</div>
+
                 </div>
             </div>
         </div>
@@ -637,9 +691,24 @@ def subsection_two_simple(left, right){
             <div class="file_explorer">
                 <div class="icon_grid"
                     style="flex-direction: row; flex-wrap: wrap; color: black; margin-top: 0px; padding-top: 0.5rem;">
-                    folder_icon({open_window}, {'CMPSC458'}, {CMPSC <br> 458: Fundamentals of Computer Graphics}, {assets/textures/opti/document.png})
-                    folder_icon({open_window}, {'CMPSC473'}, {CMPSC 473: Operating Systems},{assets/textures/opti/document.png})
-                    folder_icon({open_window}, {'CMPSC483W'}, {CMPSC 483W: Software Design Methods}, {assets/textures/opti/document.png})
+                    <div class="folder_icon_container" onclick="folder_icon_onclick(this)" ondblclick=" open_window ( 'CMPSC458' ) ">
+    <img class="icon_image" src="assets/textures/opti/document.png" alt="CMPSC <br> 458: Fundamentals of Computer Graphics" draggable="false">
+    <div class="selection-effect" style="--icon-image: url(&quot;assets/textures/opti/document.png&quot;);"></div>
+    <p class="icon_name" style="color:black">CMPSC <br> 458: Fundamentals of Computer Graphics</p>
+</div>
+
+                    <div class="folder_icon_container" onclick="folder_icon_onclick(this)" ondblclick=" open_window ( 'CMPSC473' ) ">
+    <img class="icon_image" src="assets/textures/opti/document.png" alt="CMPSC 473: Operating Systems" draggable="false">
+    <div class="selection-effect" style="--icon-image: url(&quot;assets/textures/opti/document.png&quot;);"></div>
+    <p class="icon_name" style="color:black">CMPSC 473: Operating Systems</p>
+</div>
+
+                    <div class="folder_icon_container" onclick="folder_icon_onclick(this)" ondblclick=" open_window ( 'CMPSC483W' ) ">
+    <img class="icon_image" src="assets/textures/opti/document.png" alt="CMPSC 483W: Software Design Methods" draggable="false">
+    <div class="selection-effect" style="--icon-image: url(&quot;assets/textures/opti/document.png&quot;);"></div>
+    <p class="icon_name" style="color:black">CMPSC 483W: Software Design Methods</p>
+</div>
+
                 </div>
             </div>
         </div>
@@ -690,9 +759,21 @@ def subsection_two_simple(left, right){
                     </div>
                     <div class="section">
                         <div class="section_title">Education</div>
-                        subsection_three_simple({<b>University Park</b>}, {<b>Pennsylvania State University</b>},
-                        {<b>Fall 2020 - Fall 2023</b>})
-                        subsection_two_simple({<li>B.S. in Computer Science, Fall 2023.</li>}, {Current GPA: 3.28})
+                        <div>
+    <div class="subsection3">
+        <div class="subsection_elem_left"><b>University Park</b></div>
+        <div class="subsection_elem_center"><b>Pennsylvania State University</b></div>
+        <div class="subsection_elem_right"><b>Fall 2020 - Fall 2023</b></div>
+    </div>
+</div>
+
+                        <div>
+    <div class="subsection2">
+        <div class="subsection_elem_left"><li>B.S. in Computer Science, Fall 2023.</li></div>
+        <div class="subsection_elem_right">Current GPA: 3.28</div>
+    </div>
+</div>
+
                     </div>
                     <div class="section">
                         <div class="section_title">Technical Abilities</div>
@@ -705,53 +786,86 @@ def subsection_two_simple(left, right){
                     <div clas="section">
                         <div class="section_title">Projects</div>
                         <div style="display: flex; flex-direction: column; gap: 1rem;">
-                            subsection_two({<b>Data-Orienteed OpenGL Text Editor (2023):</b>}, {<b>C; C++; OpenGL;
-                                JetBrains IDE</b>},
-                            {<li>
+                            <div>
+    <div class="subsection2">
+        <div class="subsection_elem_left"><b>Data-Orienteed OpenGL Text Editor (2023):</b></div>
+        <div class="subsection_elem_right"><b>C; C++; OpenGL;
+                                JetBrains IDE</b></div>
+    </div>
+    <li>
                                 An extremely performant text editor that makes use of modern OpenGL and Data Oriented
                                 Design philosophies. Features a vector of gap buffers in order to reduce the impact of
                                 having to insert characters into a string.
-                            </li>}
-                            )
+                            </li>
+</div>
 
-                            subsection_two({<b>Pipelined MIPS Processor (2022):</b>}, {<b>Verilog; MIPS Assembly;
-                                Vivado</b>},
-                            {<li>
+
+                            <div>
+    <div class="subsection2">
+        <div class="subsection_elem_left"><b>Pipelined MIPS Processor (2022):</b></div>
+        <div class="subsection_elem_right"><b>Verilog; MIPS Assembly;
+                                Vivado</b></div>
+    </div>
+    <li>
                                 A pipelined microcontroller designed in Verilog, that is capable of running MIPS
                                 assembly. It contains built in memory for both instructions as well as data, and
                                 supports forwarding between stages in order to avoid stalls.
-                            </li>}
-                            )
+                            </li>
+</div>
 
-                            subsection_two({<b>Stitch (2022):</b>}, {<b>C; C++; CMake; JetBrains IDE</b>},
-                            {<li>
+
+                            <div>
+    <div class="subsection2">
+        <div class="subsection_elem_left"><b>Stitch (2022):</b></div>
+        <div class="subsection_elem_right"><b>C; C++; CMake; JetBrains IDE</b></div>
+    </div>
+    <li>
                                 A performant, opinionated build system and project initialization/management tool that
                                 automatically generates CMakeLists.txt files based on the include tree of the project's
                                 module headers.
-                            </li>}
-                            )
+                            </li>
+</div>
 
-                            subsection_two({<b>Fast List (2022):</b>}, {<b>C; C++; JetBrains IDE</b>},
-                            {<li>
+
+                            <div>
+    <div class="subsection2">
+        <div class="subsection_elem_left"><b>Fast List (2022):</b></div>
+        <div class="subsection_elem_right"><b>C; C++; JetBrains IDE</b></div>
+    </div>
+    <li>
                                 A linked list implementation designed around minimizing cache misses and amortizing
                                 memory overhead. Benchmarks indicate a 3-5x performance improvement over std::list for
                                 standard operations.
-                            </li>}
-                            )
+                            </li>
+</div>
+
                         </div>
                     </div>
                     <div class="section">
                         <div class="section_title">Employment</div>
                         <div style="display: flex; flex-direction: column; gap: 1rem;">
-                            subsection_three({<b>Employee</b>}, {<b>Penn State CMPEN 497 Grader</b>}, {<b>Spring 2023 -
-                                Present</b>}, {
+                            <div>
+    <div class="subsection3">
+        <div class="subsection_elem_left"><b>Employee</b></div>
+        <div class="subsection_elem_center"><b>Penn State CMPEN 497 Grader</b></div>
+        <div class="subsection_elem_right"><b>Spring 2023 -
+                                Present</b></div>
+    </div>
+    
                             <li>Graded student assignments and updated scores to the grading portal in a
                                 timely manner.</li>
                             <li>Made sure grading was transparent and students were understanding of the grades
                                 they received.</li>
-                            })
-                            subsection_three({<b>Volunteer</b>}, {<b>Community Empowerment Northern Virginia</b>},
-                            {<b>Summer 2019</b>}, {
+                            
+</div>
+
+                            <div>
+    <div class="subsection3">
+        <div class="subsection_elem_left"><b>Volunteer</b></div>
+        <div class="subsection_elem_center"><b>Community Empowerment Northern Virginia</b></div>
+        <div class="subsection_elem_right"><b>Summer 2019</b></div>
+    </div>
+    
                             <li>Sole data entry specialist in charge of maintaining CENV's consumer information
                                 database.</li>
                             <li>Scanned
@@ -761,7 +875,9 @@ def subsection_two_simple(left, right){
                                 efficient way for consumer information to be directly inputted into the company
                                 database.</li>
                             <li>Garnered 67.5 total volunteer hours throughout my experience with CENV.</li>
-                            })
+                            
+</div>
+
                         </div>
                     </div>
                     <div class="section">
@@ -774,11 +890,36 @@ def subsection_two_simple(left, right){
     </div>
 
     <div class="icon_grid">
-        icon({open_window}, {'Resume'} , Resume , {assets/textures/opti/document.png})
-        icon({open_window}, {'Projects'} , Projects , {assets/textures/opti/folder_with_content.png})
-        icon({open_window}, {'Coursework'} , {Coursework} , {assets/textures/opti/folder_with_content.png})
-        icon({open_email} , {} , {Contact Me} , {assets/textures/opti/mailbox_world.png})
-        icon({open_window}, {'PersonalNarrative'}, {Personal Narrative}, {assets/textures/opti/media.png})
+        <div class="icon_container" onclick="icon_onclick(this)" ondblclick=" open_window ( 'Resume' ) ">
+    <img class="icon_image" src="assets/textures/opti/document.png" alt="Resume" draggable="false">
+    <div class="selection-effect" style="--icon-image: url(&quot;assets/textures/opti/document.png&quot;);"></div>
+    <p class="icon_name">Resume</p>
+</div>
+
+        <div class="icon_container" onclick="icon_onclick(this)" ondblclick=" open_window ( 'Projects' ) ">
+    <img class="icon_image" src="assets/textures/opti/folder_with_content.png" alt="Projects" draggable="false">
+    <div class="selection-effect" style="--icon-image: url(&quot;assets/textures/opti/folder_with_content.png&quot;);"></div>
+    <p class="icon_name">Projects</p>
+</div>
+
+        <div class="icon_container" onclick="icon_onclick(this)" ondblclick=" open_window ( 'Coursework' ) ">
+    <img class="icon_image" src="assets/textures/opti/folder_with_content.png" alt="Coursework" draggable="false">
+    <div class="selection-effect" style="--icon-image: url(&quot;assets/textures/opti/folder_with_content.png&quot;);"></div>
+    <p class="icon_name">Coursework</p>
+</div>
+
+        <div class="icon_container" onclick="icon_onclick(this)" ondblclick=" open_email (  ) ">
+    <img class="icon_image" src="assets/textures/opti/mailbox_world.png" alt="Contact Me" draggable="false">
+    <div class="selection-effect" style="--icon-image: url(&quot;assets/textures/opti/mailbox_world.png&quot;);"></div>
+    <p class="icon_name">Contact Me</p>
+</div>
+
+        <div class="icon_container" onclick="icon_onclick(this)" ondblclick=" open_window ( 'PersonalNarrative' ) ">
+    <img class="icon_image" src="assets/textures/opti/media.png" alt="Personal Narrative" draggable="false">
+    <div class="selection-effect" style="--icon-image: url(&quot;assets/textures/opti/media.png&quot;);"></div>
+    <p class="icon_name">Personal Narrative</p>
+</div>
+
     </div>
 
     <div id="taskbar">

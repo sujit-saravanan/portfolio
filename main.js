@@ -454,6 +454,10 @@ function makeDraggable(elmnt) {
     }
 }
 
+function getFolderContentCount(){
+    
+}
+
 function close_window(prefix){
     document.getElementById(prefix+"Window").style.display = "none";
     window_open_map.set(prefix+"Window", false)
